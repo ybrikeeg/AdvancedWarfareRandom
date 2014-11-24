@@ -82,6 +82,8 @@
    NSLog(@"Primary: %@", self.primary.primaryName);
    NSLog(@"Primary attach: %@", self.primary.attachments.attachmentList);
    NSLog(@"Secondary: %@", self.secondary.secondaryName);
+   NSLog(@"Secondary attach: %@", self.secondary.attachments.attachmentList);
+
    NSLog(@"Perk 1: %@ \tWildCard: %@", self.perks.perk1Name, self.perks.wildCardPerk1Name);
    NSLog(@"Perk 2: %@ \tWildCard: %@", self.perks.perk2Name, self.perks.wildCardPerk2Name);
    NSLog(@"Perk 3: %@ \tWildCard: %@", self.perks.perk3Name, self.perks.wildCardPerk3Name);

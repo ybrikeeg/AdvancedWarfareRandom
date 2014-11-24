@@ -12,5 +12,5 @@
 
 @property (nonatomic, strong) NSMutableArray *attachmentList;
 
-- (instancetype)initWithGunName:(NSString *)gunName numberOfAttachments:(int)attachmentCount;
+- (instancetype)initWithGunName:(NSString *)gunName numberOfAttachments:(int)attachmentCount isPrimary:(BOOL)isPrimary;
 @end

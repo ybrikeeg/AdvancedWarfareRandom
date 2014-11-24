@@ -25,8 +25,8 @@
          self.pointsUsed +=1;
          
          int attachmentCount = [self getAttachmentCount: pointsRemaining];
-         //Attachments *attachments = [[Attachments alloc] initWithGunName:self.secondaryName numberOfAttachments:attachmentCount];
-         //self.attachments = attachments;
+         Attachments *attachments = [[Attachments alloc] initWithGunName:self.secondaryName numberOfAttachments:attachmentCount isPrimary:NO];
+         self.attachments = attachments;
       }
    }
    

@@ -10,23 +10,27 @@
 
 @implementation Attachments
 
-- (instancetype)initWithGunName:(NSString *)gunName numberOfAttachments:(int)attachmentCount{
+- (instancetype)initWithGunName:(NSString *)gunName numberOfAttachments:(int)attachmentCount isPrimary:(BOOL)isPrimary{
    
    self = [super init];
    if (self) {
 
       self.attachmentList = [[NSMutableArray alloc] init];
       //NSLog(@"Looking for %d attachments for %@", attachmentCount, gunName);
-      [self getAttachments:gunName numberOfAttachments: attachmentCount];
+      [self getAttachments:gunName numberOfAttachments: attachmentCount isPrimary:isPrimary];
       //NSLog(@"final attachments: %@", self.attachmentList);
    }
    
    return self;
 }
 
-- (void)getAttachments:(NSString *)gunName numberOfAttachments:(int)attachmentCount{
+- (void)getAttachments:(NSString *)gunName numberOfAttachments:(int)attachmentCount isPrimary:(BOOL)isPrimary{
    NSBundle *gunBundle = [NSBundle mainBundle];
-   NSString *gunPlistPath = [gunBundle pathForResource:@"Primary" ofType:@"plist"];
+   NSString *resource = @"Primary";
+   if (!isPrimary){
+      resource = @"Secondary";
+   }
+   NSString *gunPlistPath = [gunBundle pathForResource:resource ofType:@"plist"];
    NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
    
    NSArray *gunAttachments = [gunOtherDictionary objectForKey:gunName];
