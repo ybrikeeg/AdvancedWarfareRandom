@@ -42,6 +42,8 @@
    else if (scorestreakChance >= PROBABILITY_0_SCORESTREAK + PROBABILITY_1_SCORESTREAK + PROBABILITY_2_SCORESTREAK + PROBABILITY_3_SCORESTREAK){
       self.pointsUsed += 5;
       scorestreakCount = 4;
+   }else{
+      NSLog(@"WHATTT");
    }
    
    while (self.pointsUsed > pointsRemaining){
@@ -51,4 +53,5 @@
    
    return scorestreakCount;
 }
+
 @end

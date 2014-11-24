@@ -51,15 +51,17 @@
    if (attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY){
       self.pointsUsed += 0;
       attachCount = 0;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY){
+   }else if (attachmentChance > PROBABILITY_0_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY){
       self.pointsUsed += 1;
       attachCount = 1;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY){
+   }else if (attachmentChance > PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY){
       self.pointsUsed += 2;
       attachCount = 2;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY){
+   }else if (attachmentChance > PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY){
       self.pointsUsed += 4;
       attachCount = 3;
+   }else{
+      NSLog(@"WHATTT");
    }
    
    while (self.pointsUsed > pointsRemaining){

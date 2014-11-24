@@ -37,7 +37,7 @@
    
    for (int i = 0 ; i< 100; i++){
       NSLog(@"\n\n");
-      Scorestreaks *primary = [[Scorestreaks alloc] initWithPointsRemaining:arc4random()%12];
+      ExoAbility *primary = [[ExoAbility alloc] initWithPointsRemaining:arc4random()%8];
 
    }
    

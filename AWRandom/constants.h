@@ -37,4 +37,9 @@
 #define PROBABILITY_3_SCORESTREAK 50
 #define PROBABILITY_4_SCORESTREAK 15
 
+
+//chance of the number of exoability/exolaunchers
+#define PROBABILITY_0_EXO 10
+#define PROBABILITY_1_EXO 80
+#define PROBABILITY_2_EXO 10
 #endif
