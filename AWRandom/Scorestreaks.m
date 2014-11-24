@@ -7,14 +7,18 @@
 //
 
 #import "Scorestreaks.h"
-
+@interface Scorestreaks()
+@property (nonatomic, strong) NSMutableArray *streakArray;
+@end
 @implementation Scorestreaks
 
 - (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining{
    
    self = [super init];
    if (self) {
+      self.streakArray = [[NSMutableArray alloc] init];
       int scorestreakCount = [self getScorestreakCount:pointsRemaining];
+      [self pickScorestreaks:scorestreakCount];
       NSLog(@"Scorestreak count: %d points used: %ld/%ld", scorestreakCount, (long)self.pointsUsed, (long)pointsRemaining);
       
    }
@@ -52,6 +56,22 @@
    }
    
    return scorestreakCount;
+}
+
+- (void)pickScorestreaks:(int)count{
+   //pick equipment
+   NSBundle *streakBundle = [NSBundle mainBundle];
+   NSString *streakPlistPath = [streakBundle pathForResource:@"Scorestreaks" ofType:@"plist"];
+   NSDictionary *streakDictionary = [[NSDictionary alloc] initWithContentsOfFile:streakPlistPath];
+   NSArray *streakLib = [streakDictionary objectForKey:@"scorestreaks"];
+   for (int i = 0; i < count; i ++){
+      int streakCount = arc4random()%[streakLib count];
+      while ([self.streakArray containsObject:[NSNumber numberWithInt:streakCount]]){
+         streakCount = arc4random()%[streakLib count];
+      }
+      [self.streakArray addObject:[NSNumber numberWithInt:streakCount]];
+   }
+   NSLog(@"array: %@", self.streakArray);
 }
 
 @end

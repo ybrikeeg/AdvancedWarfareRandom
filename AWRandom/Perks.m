@@ -16,8 +16,10 @@
    if (self) {
       self.pointsUsed = 0;
       [self selectPrimaryPerks: pointsRemaining];
-
-      NSLog(@"Points given: %ld points used: %ld", (long)pointsRemaining, (long)self.pointsUsed);
+      
+      NSLog(@"Perk 1: %@ \tWildCard: %@", self.perk1Name, self.wildCardPerk1Name);
+      NSLog(@"Perk 2: %@ \tWildCard: %@", self.perk2Name, self.wildCardPerk2Name);
+      NSLog(@"Perk 3: %@ \tWildCard: %@", self.perk3Name, self.wildCardPerk3Name);
    }
    
    return self;
@@ -33,33 +35,77 @@
    
 }
 
+- (void)setPerkName:(int)perkIndex wildcard:(bool) wildcard clear:(bool)clear{
+   NSString *perkName;
+   if (clear){
+      perkName = @"";
+   }else{
+      perkName = [self retrievePerkKey:[NSString stringWithFormat:@"Perk %d", perkIndex]];
+   }
+   if (perkIndex == 1 && wildcard == NO){
+      self.perk1Name = perkName;
+   }else if (perkIndex == 2 && wildcard == NO){
+      self.perk2Name = perkName;
+   }else if (perkIndex == 3 && wildcard == NO){
+      self.perk3Name = perkName;
+   }else if (perkIndex == 1 && wildcard == YES){
+      self.wildCardPerk1Name = perkName;
+   }else if (perkIndex == 2 && wildcard == YES){
+      self.wildCardPerk2Name = perkName;
+   }else if (perkIndex == 3 && wildcard == YES){
+      self.wildCardPerk3Name = perkName;
+   }
+}
 - (void)selectPerk:(int)perkIndex withPointsRemaining:(NSInteger) pointsRemaining{
    if (pointsRemaining == 0){
       NSLog(@"No Perk %d", perkIndex);
+      [self setPerkName:perkIndex wildcard:NO clear:YES];
       return;
    }
    int used = 0;
    int perkChance = arc4random()%100;
+   bool wildcard = NO;
    if (perkChance < (100 - PROBABILTIY_OF_PERK_WILDCARD)){
       //select perk 1
       used += 1;
-      //self.pointsUsed += 1;
       NSLog(@"Perk %d", perkIndex);
-      
+      //get perk name
+      [self setPerkName:perkIndex wildcard:NO clear:NO];
       if (perkChance < PROBABILTIY_OF_PERK_WILDCARD){// 20/80 = 25%
-         //self.pointsUsed += 2;
          used += 2;
+         wildcard = YES;
          NSLog(@"Perk %d WildCard", perkIndex);
+         [self setPerkName:perkIndex wildcard:YES clear:NO];
+         
       }
    }else{
       NSLog(@"Nooo Perk %d", perkIndex);
+      [self setPerkName:perkIndex wildcard:NO clear:YES];
+      
    }
-
+   
    if (used > pointsRemaining){
+      [self setPerkName:perkIndex wildcard:NO clear:YES];
+      if (wildcard){
+         [self setPerkName:perkIndex wildcard:YES clear:YES];
+         
+      }
       [self selectPerk:perkIndex withPointsRemaining:pointsRemaining];
    }else{
       self.pointsUsed += used;
    }
+}
+
+-(NSString *) retrievePerkKey:(NSString *)key{
+   NSBundle *perkBundle = [NSBundle mainBundle];
+   NSString *perkPlistPath = [perkBundle pathForResource:@"Perks" ofType:@"plist"];
+   NSDictionary *perkDictionary = [[NSDictionary alloc] initWithContentsOfFile:perkPlistPath];
+   
+   NSArray *perkArray = [perkDictionary objectForKey:key];
+   int rand = arc4random()%[perkArray count];
+   NSString *perk = [perkArray objectAtIndex:rand];
+   
+   return perk;
 }
 
 @end

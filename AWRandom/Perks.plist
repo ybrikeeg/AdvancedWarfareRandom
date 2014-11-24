@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Perk 1</key>
+	<array>
+		<string>Flak Jacket</string>
+		<string>Hardline</string>
+		<string>Lightweight</string>
+		<string>Scavanger</string>
+		<string>Ghost</string>
+	</array>
+	<key>Perk 2</key>
+	<array>
+		<string>Sleight of Hand</string>
+		<string>Steady Aim</string>
+		<string>Warlord</string>
+		<string>Hardened</string>
+		<string>Scout</string>
+	</array>
+	<key>Perk 3</key>
+	<array>
+		<string>Marathon</string>
+		<string>Hacker</string>
+		<string>Second Chance</string>
+		<string>Tactical Mask</string>
+		<string>Ninja</string>
+	</array>
+</dict>
+</plist>

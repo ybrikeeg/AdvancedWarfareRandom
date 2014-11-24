@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420F4A191A231F72005153C9 /* Perks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 420F4A181A231F72005153C9 /* Perks.plist */; };
+		420F4A1B1A2326E4005153C9 /* Scorestreaks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */; };
 		4232884E1A22881000F7BDFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4232884D1A22881000F7BDFA /* main.m */; };
 		423288511A22881000F7BDFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 423288501A22881000F7BDFA /* AppDelegate.m */; };
 		423288541A22881000F7BDFA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423288531A22881000F7BDFA /* MainViewController.m */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420F4A181A231F72005153C9 /* Perks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Perks.plist; sourceTree = "<group>"; };
+		420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Scorestreaks.plist; sourceTree = "<group>"; };
 		423288481A22880F00F7BDFA /* AWRandom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWRandom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4232884C1A22881000F7BDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4232884D1A22881000F7BDFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				4232887E1A228B0100F7BDFA /* ExoAbility.m */,
 				423288801A228B0A00F7BDFA /* ExoLauncher.h */,
 				423288811A228B0A00F7BDFA /* ExoLauncher.m */,
+				420F4A181A231F72005153C9 /* Perks.plist */,
+				420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */,
 				423288551A22881000F7BDFA /* Main.storyboard */,
 				423288581A22881000F7BDFA /* Images.xcassets */,
 				4232885A1A22881000F7BDFA /* LaunchScreen.xib */,
@@ -238,6 +244,8 @@
 			files = (
 				423288571A22881000F7BDFA /* Main.storyboard in Resources */,
 				4232885C1A22881000F7BDFA /* LaunchScreen.xib in Resources */,
+				420F4A1B1A2326E4005153C9 /* Scorestreaks.plist in Resources */,
+				420F4A191A231F72005153C9 /* Perks.plist in Resources */,
 				423288591A22881000F7BDFA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +464,7 @@
 				4232886D1A22881000F7BDFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4232886E1A22881000F7BDFA /* Build configuration list for PBXNativeTarget "AWRandomTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +473,7 @@
 				423288701A22881000F7BDFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
