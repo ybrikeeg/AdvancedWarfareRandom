@@ -19,22 +19,16 @@
       int exist = arc4random()%100;
       //even thought points were allocated to primary, no primary will be selected
       if (exist < (100 - PROBABILITY_PRIMARY_EXIST) || pointsRemaining == 0){
-         //0 points
-         self.pointsUsed += 0;
          self.primaryName = @"blank";
-         NSLog(@"dne");
-         
+         //NSLog(@"dne");
       }else{
          //get gun name
          self.primaryName = [self getPrimaryName];
          self.pointsUsed +=1;
          
-         
          int attachmentCount = [self getAttachmentCount: pointsRemaining];
          Attachments *attachments = [[Attachments alloc] initWithGunName:self.primaryName numberOfAttachments:attachmentCount];
          self.attachments = attachments;
-         NSLog(@"Gun name: %@", self.primaryName);
-         NSLog(@"Attachments: %d points used:%ld/%ld", attachmentCount, (long)self.pointsUsed, (long)pointsRemaining);
       }
    }
    
@@ -43,7 +37,7 @@
 
 - (NSString *)getPrimaryName{
    NSBundle *gunBundle = [NSBundle mainBundle];
-   NSString *gunPlistPath = [gunBundle pathForResource:@"Guns" ofType:@"plist"];
+   NSString *gunPlistPath = [gunBundle pathForResource:@"Primary" ofType:@"plist"];
    NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
    
    int gunCount = arc4random()%[gunOtherDictionary count];

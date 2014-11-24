@@ -18,9 +18,6 @@
       self.exolauncherArrayStrings = [[NSMutableArray alloc] init];
       int exolauncherCount = [self getExolauncherCount:pointsRemaining];
       [self pickexolaunchers:exolauncherCount];
-
-      NSLog(@"exolauncher: %@", self.exolauncherArrayStrings);
-      NSLog(@"exolauncher count: %d points used: %ld/%ld", exolauncherCount, (long)self.pointsUsed, (long)pointsRemaining);
    }
    
    return self;

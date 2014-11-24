@@ -17,8 +17,6 @@
       self.exoAbilityArrayStrings = [[NSMutableArray alloc] init];
       int exoabilityCount = [self getExoabilityCount:pointsRemaining];
       [self pickExoabilities:exoabilityCount];
-      NSLog(@"Exo: %@", self.exoAbilityArrayStrings);
-      NSLog(@"Exoability count: %d points used: %ld/%ld", exoabilityCount, (long)self.pointsUsed, (long)pointsRemaining);
    }
    
    return self;

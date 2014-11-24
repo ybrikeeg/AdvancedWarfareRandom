@@ -17,14 +17,10 @@
    
    self = [super init];
    if (self) {
-  
       self.streakArrayStrings = [[NSMutableArray alloc] init];
 
       int scorestreakCount = [self getScorestreakCount:pointsRemaining];
       [self pickScorestreaks:scorestreakCount];
-      
-      NSLog(@"Streaks: %@", self.streakArrayStrings);
-      NSLog(@"Scorestreak count: %d points used: %ld/%ld", scorestreakCount, (long)self.pointsUsed, (long)pointsRemaining);
    }
    
    return self;

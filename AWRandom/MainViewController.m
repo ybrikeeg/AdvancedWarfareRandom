@@ -17,6 +17,12 @@
 @interface MainViewController ()
 @property (nonatomic) NSInteger pointsRemaining;
 @property (nonatomic, strong) NSMutableArray *modularPartsUsed;
+@property (nonatomic, strong) Primary *primary;
+@property (nonatomic, strong) Secondary *secondary;
+@property (nonatomic, strong) Perks *perks;
+@property (nonatomic, strong) Scorestreaks *scorestreak;
+@property (nonatomic, strong) ExoAbility *exoability;
+@property (nonatomic, strong) ExoLauncher *exolauncher;
 @end
 
 @implementation MainViewController
@@ -39,42 +45,46 @@
       while ([self.modularPartsUsed count] < 6){
          int modularIndex = [self pickModularIndex];
          if (modularIndex == 0){
-            NSLog(@"primary");
-            Primary *primary = [[Primary alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - primary.pointsUsed;
+            self.primary = [[Primary alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.primary.pointsUsed;
          } else if (modularIndex == 1){
-            NSLog(@"secondary");
-            Secondary *secondary = [[Secondary alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - secondary.pointsUsed;
+            self.secondary = [[Secondary alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.secondary.pointsUsed;
             
          } else if (modularIndex == 2){
-            NSLog(@"perk");
-            Perks *perks = [[Perks alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - perks.pointsUsed;
+            self.perks = [[Perks alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.perks.pointsUsed;
             
          } else if (modularIndex == 3){
-            NSLog(@"scorestreak");
-            Scorestreaks *scorestreak = [[Scorestreaks alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - scorestreak.pointsUsed;
+            self.scorestreak = [[Scorestreaks alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.scorestreak.pointsUsed;
             
          } else if (modularIndex == 4){
-            NSLog(@"exoability");
-            ExoAbility *exoability = [[ExoAbility alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - exoability.pointsUsed;
+            self.exoability = [[ExoAbility alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.exoability.pointsUsed;
             
          } else if (modularIndex == 5){
-            NSLog(@"exolauncher");
-            ExoLauncher *exolauncher = [[ExoLauncher alloc] initWithPointsRemaining:self.pointsRemaining];
-            self.pointsRemaining = self.pointsRemaining - exolauncher.pointsUsed;
+            self.exolauncher = [[ExoLauncher alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.pointsRemaining = self.pointsRemaining - self.exolauncher.pointsUsed;
          }
       }
-      NSLog(@"points remaining: %ld\n", (long)self.pointsRemaining);
+      
       if (self.pointsRemaining != 0){
          self.pointsRemaining = 13;
          [self.modularPartsUsed removeAllObjects];
       }
-
+      
    }
+   
+   NSLog(@"Primary: %@", self.primary.primaryName);
+   NSLog(@"Secondary: %@", self.secondary.secondaryName);
+   NSLog(@"Perk 1: %@ \tWildCard: %@", self.perks.perk1Name, self.perks.wildCardPerk1Name);
+   NSLog(@"Perk 2: %@ \tWildCard: %@", self.perks.perk2Name, self.perks.wildCardPerk2Name);
+   NSLog(@"Perk 3: %@ \tWildCard: %@", self.perks.perk3Name, self.perks.wildCardPerk3Name);
+   NSLog(@"Scorestreaks: %@", self.scorestreak.streakArrayStrings);
+   NSLog(@"Exoability: %@", self.exoability.exoAbilityArrayStrings);
+   NSLog(@"Exolauncher: %@", self.exolauncher.exolauncherArrayStrings);
+   
    NSLog(@"final points remaining: %ld\n\n", (long)self.pointsRemaining);
    
    

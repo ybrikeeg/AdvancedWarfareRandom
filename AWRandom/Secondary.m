@@ -18,22 +18,15 @@
       //0 pts or more
       int exist = arc4random()%100;
       if (exist < (100 - PROBABILITY_SECONDARY_EXIST) || pointsRemaining == 0){
-         //0 points
-         self.pointsUsed += 0;
          self.secondaryName = @"blank";
-         NSLog(@"dne");
       }else{
          //get gun name
          self.secondaryName = [self getSecondaryName];
          self.pointsUsed +=1;
          
-         
          int attachmentCount = [self getAttachmentCount: pointsRemaining];
          Attachments *attachments = [[Attachments alloc] initWithGunName:self.secondaryName numberOfAttachments:attachmentCount];
          self.attachments = attachments;
-         
-         NSLog(@"Attachments: %d points used:%ld/%ld", attachmentCount, (long)self.pointsUsed, (long)pointsRemaining);
-
       }
    }
    
@@ -41,8 +34,15 @@
 }
 
 - (NSString *)getSecondaryName{
-   return @"secondary gun";
+   NSBundle *gunBundle = [NSBundle mainBundle];
+   NSString *gunPlistPath = [gunBundle pathForResource:@"Secondary" ofType:@"plist"];
+   NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
+   
+   int gunCount = arc4random()%[gunOtherDictionary count];
+   //get the gun name
+   return [[gunOtherDictionary allKeys] objectAtIndex:gunCount];
 }
+
 
 - (int)getAttachmentCount:(NSInteger) pointsRemaining{
    int attachmentChance = (arc4random()%100) + 1;

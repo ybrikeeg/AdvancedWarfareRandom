@@ -16,10 +16,6 @@
    if (self) {
       self.pointsUsed = 0;
       [self selectPrimaryPerks: pointsRemaining];
-      
-      NSLog(@"Perk 1: %@ \tWildCard: %@", self.perk1Name, self.wildCardPerk1Name);
-      NSLog(@"Perk 2: %@ \tWildCard: %@", self.perk2Name, self.wildCardPerk2Name);
-      NSLog(@"Perk 3: %@ \tWildCard: %@", self.perk3Name, self.wildCardPerk3Name);
    }
    
    return self;
