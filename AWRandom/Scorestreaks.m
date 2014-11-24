@@ -8,7 +8,8 @@
 
 #import "Scorestreaks.h"
 @interface Scorestreaks()
-@property (nonatomic, strong) NSMutableArray *streakArray;
+
+@property (nonatomic, strong) NSArray *stringArray;
 @end
 @implementation Scorestreaks
 
@@ -16,9 +17,14 @@
    
    self = [super init];
    if (self) {
-      self.streakArray = [[NSMutableArray alloc] init];
+  
+      self.streakArrayStrings = [[NSMutableArray alloc] init];
+
       int scorestreakCount = [self getScorestreakCount:pointsRemaining];
       [self pickScorestreaks:scorestreakCount];
+      
+      NSLog(@"Streaks: %@", self.streakArrayStrings);
+
       NSLog(@"Scorestreak count: %d points used: %ld/%ld", scorestreakCount, (long)self.pointsUsed, (long)pointsRemaining);
       
    }
@@ -64,14 +70,24 @@
    NSString *streakPlistPath = [streakBundle pathForResource:@"Scorestreaks" ofType:@"plist"];
    NSDictionary *streakDictionary = [[NSDictionary alloc] initWithContentsOfFile:streakPlistPath];
    NSArray *streakLib = [streakDictionary objectForKey:@"scorestreaks"];
+   
+   NSMutableArray *streakArrayIndices = [[NSMutableArray alloc] init];
+
    for (int i = 0; i < count; i ++){
       int streakCount = arc4random()%[streakLib count];
-      while ([self.streakArray containsObject:[NSNumber numberWithInt:streakCount]]){
+      while ([streakArrayIndices containsObject:[NSNumber numberWithInt:streakCount]]){
          streakCount = arc4random()%[streakLib count];
       }
-      [self.streakArray addObject:[NSNumber numberWithInt:streakCount]];
+      [streakArrayIndices addObject:[NSNumber numberWithInt:streakCount]];
    }
-   NSLog(@"array: %@", self.streakArray);
+   //sort array
+   [streakArrayIndices sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+      return [obj1 compare:obj2];
+   }];
+   
+   for (int i = 0; i < count; i ++){
+      [self.streakArrayStrings addObject: [streakLib objectAtIndex:[[streakArrayIndices objectAtIndex:i] intValue]]];
+   }
 }
 
 @end

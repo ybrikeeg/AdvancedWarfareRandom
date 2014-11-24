@@ -11,12 +11,7 @@
 
 @interface Scorestreaks : NSObject
 
-@property (nonatomic, strong) NSString *scoreStreak1Name;
-@property (nonatomic, strong) NSString *scoreStreak2Name;
-@property (nonatomic, strong) NSString *scoreStreak3Name;
-@property (nonatomic, strong) NSString *wildCardScoreStreakName;
-
-
+@property (nonatomic, strong) NSMutableArray *streakArrayStrings;
 @property (nonatomic) NSInteger pointsUsed;
 
 - (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining;
