@@ -37,7 +37,7 @@
    
    for (int i = 0 ; i< 100; i++){
       NSLog(@"\n\n");
-      Primary *primary = [[Primary alloc] initWithPointsRemaining:arc4random()%12];
+      Scorestreaks *primary = [[Scorestreaks alloc] initWithPointsRemaining:arc4random()%12];
 
    }
    

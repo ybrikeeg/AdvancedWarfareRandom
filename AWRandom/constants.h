@@ -18,7 +18,23 @@
 #define PROBABILITY_1_ATTACHMENT_PRIMARY 30
 #define PROBABILITY_2_ATTACHMENT_PRIMARY 30
 #define PROBABILITY_3_ATTACHMENT_PRIMARY 20
-//perks
+
+//chance of having secondar
+#define PROBABILITY_SECONDARY_EXIST 80
+
+//secondary attachment probabilities (should total to 100)
+#define PROBABILITY_0_ATTACHMENT_SECONDARY 50
+#define PROBABILITY_1_ATTACHMENT_SECONDARY 25
+#define PROBABILITY_2_ATTACHMENT_SECONDARY 25
+
+//chance of a given perk tier having a wildcard
 #define PROBABILTIY_OF_PERK_WILDCARD 20
+
+//chance of number of given scorestreaks
+#define PROBABILITY_0_SCORESTREAK 5
+#define PROBABILITY_1_SCORESTREAK 10
+#define PROBABILITY_2_SCORESTREAK 20
+#define PROBABILITY_3_SCORESTREAK 50
+#define PROBABILITY_4_SCORESTREAK 15
 
 #endif

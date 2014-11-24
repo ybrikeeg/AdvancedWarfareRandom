@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Attachments.h"
-
+#import "constants.h"
 @interface Secondary : NSObject
 
 @property (nonatomic, strong) NSString *secondaryName;
