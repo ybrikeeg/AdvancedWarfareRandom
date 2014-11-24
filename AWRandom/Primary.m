@@ -48,16 +48,16 @@
 - (int)getAttachmentCount: (NSInteger)pointsRemaining{
    int attachmentChance = (arc4random()%100) + 1;
    int attachCount = 0;
-   if (attachmentChance <= PROBABILITY_0_ATTACHMENT){
+   if (attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY){
       self.pointsUsed += 0;
       attachCount = 0;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT && attachmentChance <= PROBABILITY_0_ATTACHMENT + PROBABILITY_1_ATTACHMENT){
+   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY){
       self.pointsUsed += 1;
       attachCount = 1;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT + PROBABILITY_1_ATTACHMENT && attachmentChance <= PROBABILITY_0_ATTACHMENT + PROBABILITY_1_ATTACHMENT + PROBABILITY_2_ATTACHMENT){
+   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY){
       self.pointsUsed += 2;
       attachCount = 2;
-   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT + PROBABILITY_1_ATTACHMENT + PROBABILITY_2_ATTACHMENT && attachmentChance <= PROBABILITY_0_ATTACHMENT + PROBABILITY_1_ATTACHMENT + PROBABILITY_2_ATTACHMENT + PROBABILITY_3_ATTACHMENT){
+   }else if (attachmentChance >= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY && attachmentChance <= PROBABILITY_0_ATTACHMENT_PRIMARY + PROBABILITY_1_ATTACHMENT_PRIMARY + PROBABILITY_2_ATTACHMENT_PRIMARY + PROBABILITY_3_ATTACHMENT_PRIMARY){
       self.pointsUsed += 4;
       attachCount = 3;
    }
