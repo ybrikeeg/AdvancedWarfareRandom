@@ -33,7 +33,7 @@
          int attachmentCount = [self getAttachmentCount: pointsRemaining];
          Attachments *attachments = [[Attachments alloc] initWithGunName:self.primaryName numberOfAttachments:attachmentCount];
          self.attachments = attachments;
-         
+         NSLog(@"Gun name: %@", self.primaryName);
          NSLog(@"Attachments: %d points used:%ld/%ld", attachmentCount, (long)self.pointsUsed, (long)pointsRemaining);
       }
    }
@@ -42,7 +42,13 @@
 }
 
 - (NSString *)getPrimaryName{
-   return @"primary gun";
+   NSBundle *gunBundle = [NSBundle mainBundle];
+   NSString *gunPlistPath = [gunBundle pathForResource:@"Guns" ofType:@"plist"];
+   NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
+   
+   int gunCount = arc4random()%[gunOtherDictionary count];
+   //get the gun name
+   return [[gunOtherDictionary allKeys] objectAtIndex:gunCount];
 }
 
 - (int)getAttachmentCount: (NSInteger)pointsRemaining{

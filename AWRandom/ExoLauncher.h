@@ -10,9 +10,7 @@
 #import "constants.h"
 @interface ExoLauncher : NSObject
 
-@property (nonatomic, strong) NSString *exoLauncherName;
-@property (nonatomic, strong) NSString *wildCardexoLauncherName;
-
+@property (nonatomic, strong) NSMutableArray *exolauncherArrayStrings;
 @property (nonatomic) NSInteger pointsUsed;
 
 - (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining;

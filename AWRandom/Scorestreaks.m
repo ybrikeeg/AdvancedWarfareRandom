@@ -24,9 +24,7 @@
       [self pickScorestreaks:scorestreakCount];
       
       NSLog(@"Streaks: %@", self.streakArrayStrings);
-
       NSLog(@"Scorestreak count: %d points used: %ld/%ld", scorestreakCount, (long)self.pointsUsed, (long)pointsRemaining);
-      
    }
    
    return self;
@@ -65,7 +63,6 @@
 }
 
 - (void)pickScorestreaks:(int)count{
-   //pick equipment
    NSBundle *streakBundle = [NSBundle mainBundle];
    NSString *streakPlistPath = [streakBundle pathForResource:@"Scorestreaks" ofType:@"plist"];
    NSDictionary *streakDictionary = [[NSDictionary alloc] initWithContentsOfFile:streakPlistPath];

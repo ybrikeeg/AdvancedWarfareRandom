@@ -11,9 +11,7 @@
 
 @interface ExoAbility : NSObject
 
-@property (nonatomic, strong) NSString *exoAbilityName;
-@property (nonatomic, strong) NSString *wildCardexoAbilityName;
-
+@property (nonatomic, strong) NSMutableArray *exoAbilityArrayStrings;
 @property (nonatomic) NSInteger pointsUsed;
 
 - (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining;

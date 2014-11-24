@@ -15,14 +15,42 @@
    
    self = [super init];
    if (self) {
-      
+      self.exolauncherArrayStrings = [[NSMutableArray alloc] init];
       int exolauncherCount = [self getExolauncherCount:pointsRemaining];
-      NSLog(@"Exoability count: %d points used: %ld/%ld", exolauncherCount, (long)self.pointsUsed, (long)pointsRemaining);
+      [self pickexolaunchers:exolauncherCount];
+
+      NSLog(@"exolauncher: %@", self.exolauncherArrayStrings);
+      NSLog(@"exolauncher count: %d points used: %ld/%ld", exolauncherCount, (long)self.pointsUsed, (long)pointsRemaining);
    }
    
    return self;
 }
 
+- (void)pickexolaunchers:(int)count{
+   //pick equipment
+   NSBundle *exolauncherBundle = [NSBundle mainBundle];
+   NSString *exolauncherPlistPath = [exolauncherBundle pathForResource:@"Exolaunchers" ofType:@"plist"];
+   NSDictionary *exolauncherDictionary = [[NSDictionary alloc] initWithContentsOfFile:exolauncherPlistPath];
+   NSArray *exolauncherLib = [exolauncherDictionary objectForKey:@"exolaunchers"];
+   
+   NSMutableArray *exolauncherArrayIndices = [[NSMutableArray alloc] init];
+   
+   for (int i = 0; i < count; i ++){
+      int exolauncherCount = arc4random()%[exolauncherLib count];
+      while ([exolauncherArrayIndices containsObject:[NSNumber numberWithInt:exolauncherCount]]){
+         exolauncherCount = arc4random()%[exolauncherLib count];
+      }
+      [exolauncherArrayIndices addObject:[NSNumber numberWithInt:exolauncherCount]];
+   }
+   //sort array
+   [exolauncherArrayIndices sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+      return [obj1 compare:obj2];
+   }];
+   
+   for (int i = 0; i < count; i ++){
+      [self.exolauncherArrayStrings addObject: [exolauncherLib objectAtIndex:[[exolauncherArrayIndices objectAtIndex:i] intValue]]];
+   }
+}
 
 - (int)getExolauncherCount:(NSInteger) pointsRemaining{
    int exolauncherChance = (arc4random()%100) + 1;

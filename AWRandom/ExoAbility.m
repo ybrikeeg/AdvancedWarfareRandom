@@ -14,14 +14,41 @@
    
    self = [super init];
    if (self) {
-      
+      self.exoAbilityArrayStrings = [[NSMutableArray alloc] init];
       int exoabilityCount = [self getExoabilityCount:pointsRemaining];
+      [self pickExoabilities:exoabilityCount];
+      NSLog(@"Exo: %@", self.exoAbilityArrayStrings);
       NSLog(@"Exoability count: %d points used: %ld/%ld", exoabilityCount, (long)self.pointsUsed, (long)pointsRemaining);
    }
    
    return self;
 }
 
+- (void)pickExoabilities:(int)count{
+   //pick equipment
+   NSBundle *exoabilityBundle = [NSBundle mainBundle];
+   NSString *exoabilityPlistPath = [exoabilityBundle pathForResource:@"Exoabilities" ofType:@"plist"];
+   NSDictionary *exoabilityDictionary = [[NSDictionary alloc] initWithContentsOfFile:exoabilityPlistPath];
+   NSArray *exoabilityLib = [exoabilityDictionary objectForKey:@"exoabilities"];
+   
+   NSMutableArray *exoabilityArrayIndices = [[NSMutableArray alloc] init];
+   
+   for (int i = 0; i < count; i ++){
+      int exoabilityCount = arc4random()%[exoabilityLib count];
+      while ([exoabilityArrayIndices containsObject:[NSNumber numberWithInt:exoabilityCount]]){
+         exoabilityCount = arc4random()%[exoabilityLib count];
+      }
+      [exoabilityArrayIndices addObject:[NSNumber numberWithInt:exoabilityCount]];
+   }
+   //sort array
+   [exoabilityArrayIndices sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+      return [obj1 compare:obj2];
+   }];
+   
+   for (int i = 0; i < count; i ++){
+      [self.exoAbilityArrayStrings addObject: [exoabilityLib objectAtIndex:[[exoabilityArrayIndices objectAtIndex:i] intValue]]];
+   }
+}
 
 - (int)getExoabilityCount:(NSInteger) pointsRemaining{
    int exoabilityChance = (arc4random()%100) + 1;

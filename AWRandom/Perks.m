@@ -58,7 +58,7 @@
 }
 - (void)selectPerk:(int)perkIndex withPointsRemaining:(NSInteger) pointsRemaining{
    if (pointsRemaining == 0){
-      NSLog(@"No Perk %d", perkIndex);
+      //NSLog(@"No Perk %d", perkIndex);
       [self setPerkName:perkIndex wildcard:NO clear:YES];
       return;
    }
@@ -68,20 +68,19 @@
    if (perkChance < (100 - PROBABILTIY_OF_PERK_WILDCARD)){
       //select perk 1
       used += 1;
-      NSLog(@"Perk %d", perkIndex);
+      //NSLog(@"Perk %d", perkIndex);
       //get perk name
       [self setPerkName:perkIndex wildcard:NO clear:NO];
       if (perkChance < PROBABILTIY_OF_PERK_WILDCARD){// 20/80 = 25%
          used += 2;
          wildcard = YES;
-         NSLog(@"Perk %d WildCard", perkIndex);
+         //NSLog(@"Perk %d WildCard", perkIndex);
          [self setPerkName:perkIndex wildcard:YES clear:NO];
          
       }
    }else{
-      NSLog(@"Nooo Perk %d", perkIndex);
+      //NSLog(@"Nooo Perk %d", perkIndex);
       [self setPerkName:perkIndex wildcard:NO clear:YES];
-      
    }
    
    if (used > pointsRemaining){

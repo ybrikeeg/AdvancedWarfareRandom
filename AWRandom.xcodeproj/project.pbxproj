@@ -23,6 +23,9 @@
 		4232887F1A228B0100F7BDFA /* ExoAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4232887E1A228B0100F7BDFA /* ExoAbility.m */; };
 		423288821A228B0A00F7BDFA /* ExoLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 423288811A228B0A00F7BDFA /* ExoLauncher.m */; };
 		423288851A2292E900F7BDFA /* Attachments.m in Sources */ = {isa = PBXBuildFile; fileRef = 423288841A2292E900F7BDFA /* Attachments.m */; };
+		424B465D1A2330350072B206 /* Guns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B465C1A2330350072B206 /* Guns.plist */; };
+		424B465F1A2332780072B206 /* Exoabilities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B465E1A2332780072B206 /* Exoabilities.plist */; };
+		424B46611A2333740072B206 /* Exolaunchers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46601A2333740072B206 /* Exolaunchers.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		423288831A2292E900F7BDFA /* Attachments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachments.h; sourceTree = "<group>"; };
 		423288841A2292E900F7BDFA /* Attachments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachments.m; sourceTree = "<group>"; };
 		423288861A23101700F7BDFA /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		424B465C1A2330350072B206 /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guns.plist; sourceTree = "<group>"; };
+		424B465E1A2332780072B206 /* Exoabilities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exoabilities.plist; sourceTree = "<group>"; };
+		424B46601A2333740072B206 /* Exolaunchers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exolaunchers.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +132,11 @@
 				4232887E1A228B0100F7BDFA /* ExoAbility.m */,
 				423288801A228B0A00F7BDFA /* ExoLauncher.h */,
 				423288811A228B0A00F7BDFA /* ExoLauncher.m */,
+				424B465C1A2330350072B206 /* Guns.plist */,
 				420F4A181A231F72005153C9 /* Perks.plist */,
 				420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */,
+				424B465E1A2332780072B206 /* Exoabilities.plist */,
+				424B46601A2333740072B206 /* Exolaunchers.plist */,
 				423288551A22881000F7BDFA /* Main.storyboard */,
 				423288581A22881000F7BDFA /* Images.xcassets */,
 				4232885A1A22881000F7BDFA /* LaunchScreen.xib */,
@@ -242,9 +251,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424B465F1A2332780072B206 /* Exoabilities.plist in Resources */,
 				423288571A22881000F7BDFA /* Main.storyboard in Resources */,
 				4232885C1A22881000F7BDFA /* LaunchScreen.xib in Resources */,
 				420F4A1B1A2326E4005153C9 /* Scorestreaks.plist in Resources */,
+				424B465D1A2330350072B206 /* Guns.plist in Resources */,
+				424B46611A2333740072B206 /* Exolaunchers.plist in Resources */,
 				420F4A191A231F72005153C9 /* Perks.plist in Resources */,
 				423288591A22881000F7BDFA /* Images.xcassets in Resources */,
 			);
