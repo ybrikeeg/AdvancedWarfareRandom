@@ -31,6 +31,9 @@
 - (void)viewDidLoad {
    
    self.modularPartsUsed = [[NSMutableArray alloc] init];
+   for (int i = 0; i < 100; i++){
+      [self createClass:nil];
+   }
    [super viewDidLoad];
    // Do any additional setup after loading the view, typically from a nib.
 }
@@ -77,6 +80,7 @@
    }
    
    NSLog(@"Primary: %@", self.primary.primaryName);
+   NSLog(@"Primary attach: %@", self.primary.attachments.attachmentList);
    NSLog(@"Secondary: %@", self.secondary.secondaryName);
    NSLog(@"Perk 1: %@ \tWildCard: %@", self.perks.perk1Name, self.perks.wildCardPerk1Name);
    NSLog(@"Perk 2: %@ \tWildCard: %@", self.perks.perk2Name, self.perks.wildCardPerk2Name);

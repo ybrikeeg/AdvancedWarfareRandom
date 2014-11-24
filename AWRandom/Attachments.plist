@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Red Dot</key>
+	<array>
+		<string>ACOG</string>
+		<string>Akimbo</string>
+	</array>
+	<key>ACOG</key>
+	<array>
+		<string>Red Dot</string>
+		<string>Akimbo</string>
+	</array>
+	<key>Silencer</key>
+	<array/>
+	<key>Rapid Fire</key>
+	<array/>
+	<key>Akimbo</key>
+	<array>
+		<string>Red Dot</string>
+		<string>ACOG</string>
+	</array>
+	<key>Grip</key>
+	<array/>
+</dict>
+</plist>

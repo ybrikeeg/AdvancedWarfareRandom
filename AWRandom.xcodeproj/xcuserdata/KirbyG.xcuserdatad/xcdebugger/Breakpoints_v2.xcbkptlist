@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AWRandom/Secondary.m"
-            timestampString = "438515201.789595"
+            timestampString = "438515454.040084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-getAttachmentCount:"
             landmarkType = "5">
          </BreakpointContent>

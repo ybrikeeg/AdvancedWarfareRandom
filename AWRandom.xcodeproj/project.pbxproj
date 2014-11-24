@@ -27,6 +27,7 @@
 		424B465F1A2332780072B206 /* Exoabilities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B465E1A2332780072B206 /* Exoabilities.plist */; };
 		424B46611A2333740072B206 /* Exolaunchers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46601A2333740072B206 /* Exolaunchers.plist */; };
 		424B46631A2334420072B206 /* Secondary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46621A2334420072B206 /* Secondary.plist */; };
+		424B46661A2337F00072B206 /* Attachments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46651A2337F00072B206 /* Attachments.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		424B465E1A2332780072B206 /* Exoabilities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exoabilities.plist; sourceTree = "<group>"; };
 		424B46601A2333740072B206 /* Exolaunchers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exolaunchers.plist; sourceTree = "<group>"; };
 		424B46621A2334420072B206 /* Secondary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secondary.plist; sourceTree = "<group>"; };
+		424B46651A2337F00072B206 /* Attachments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Attachments.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +117,11 @@
 		4232884A1A22880F00F7BDFA /* AWRandom */ = {
 			isa = PBXGroup;
 			children = (
+				423288861A23101700F7BDFA /* constants.h */,
 				4232884F1A22881000F7BDFA /* AppDelegate.h */,
 				423288501A22881000F7BDFA /* AppDelegate.m */,
 				423288521A22881000F7BDFA /* MainViewController.h */,
 				423288531A22881000F7BDFA /* MainViewController.m */,
-				423288861A23101700F7BDFA /* constants.h */,
 				423288711A228AD200F7BDFA /* Primary.h */,
 				423288721A228AD200F7BDFA /* Primary.m */,
 				423288741A228ADB00F7BDFA /* Secondary.h */,
@@ -134,12 +136,7 @@
 				4232887E1A228B0100F7BDFA /* ExoAbility.m */,
 				423288801A228B0A00F7BDFA /* ExoLauncher.h */,
 				423288811A228B0A00F7BDFA /* ExoLauncher.m */,
-				424B465C1A2330350072B206 /* Primary.plist */,
-				424B46621A2334420072B206 /* Secondary.plist */,
-				420F4A181A231F72005153C9 /* Perks.plist */,
-				420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */,
-				424B465E1A2332780072B206 /* Exoabilities.plist */,
-				424B46601A2333740072B206 /* Exolaunchers.plist */,
+				424B46641A2336D50072B206 /* plist */,
 				423288551A22881000F7BDFA /* Main.storyboard */,
 				423288581A22881000F7BDFA /* Images.xcassets */,
 				4232885A1A22881000F7BDFA /* LaunchScreen.xib */,
@@ -172,6 +169,20 @@
 				423288661A22881000F7BDFA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		424B46641A2336D50072B206 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				424B46651A2337F00072B206 /* Attachments.plist */,
+				424B465C1A2330350072B206 /* Primary.plist */,
+				424B46621A2334420072B206 /* Secondary.plist */,
+				420F4A181A231F72005153C9 /* Perks.plist */,
+				420F4A1A1A2326E4005153C9 /* Scorestreaks.plist */,
+				424B465E1A2332780072B206 /* Exoabilities.plist */,
+				424B46601A2333740072B206 /* Exolaunchers.plist */,
+			);
+			name = plist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				424B465D1A2330350072B206 /* Primary.plist in Resources */,
 				424B46611A2333740072B206 /* Exolaunchers.plist in Resources */,
 				420F4A191A231F72005153C9 /* Perks.plist in Resources */,
+				424B46661A2337F00072B206 /* Attachments.plist in Resources */,
 				423288591A22881000F7BDFA /* Images.xcassets in Resources */,
 				424B46631A2334420072B206 /* Secondary.plist in Resources */,
 			);
