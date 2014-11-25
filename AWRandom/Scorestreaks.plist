@@ -4,11 +4,18 @@
 <dict>
 	<key>scorestreaks</key>
 	<array>
-		<string>Jammer</string>
-		<string>Claymore</string>
-		<string>C4</string>
-		<string>Motion Sensor</string>
-		<string>Camera Spike</string>
+		<string>Aerial Recon Drone</string>
+		<string>UAV</string>
+		<string>Aerial Assault Drone</string>
+		<string>Orbital Care Package</string>
+		<string>Remote Turret</string>
+		<string>System Hack</string>
+		<string>XS1 Vulcan</string>
+		<string>Missile Strike</string>
+		<string>Bombing Run</string>
+		<string>XS1 Vulcan Goliath</string>
+		<string>Warbird</string>
+		<string>Paladin</string>
 	</array>
 </dict>
 </plist>

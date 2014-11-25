@@ -10,12 +10,12 @@
 
 @implementation ExoAbility
 
-- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining{
+- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining wildcardDisabled:(bool)wildcardDisabled{
    
    self = [super init];
    if (self) {
       self.exoAbilityArrayStrings = [[NSMutableArray alloc] init];
-      int exoabilityCount = [self getExoabilityCount:pointsRemaining];
+      int exoabilityCount = [self getExoabilityCount:pointsRemaining wildcardDisabled:wildcardDisabled];
       [self pickExoabilities:exoabilityCount];
    }
    
@@ -48,7 +48,7 @@
    }
 }
 
-- (int)getExoabilityCount:(NSInteger) pointsRemaining{
+- (int)getExoabilityCount:(NSInteger) pointsRemaining wildcardDisabled:(bool)wildcardDisabled{
    int exoabilityChance = (arc4random()%100) + 1;
    int exoabilityCount = 0;
    if (exoabilityChance <= PROBABILITY_0_EXO){
@@ -64,9 +64,9 @@
       NSLog(@"WHATTT");
    }
    
-   while (self.pointsUsed > pointsRemaining){
+   while (self.pointsUsed > pointsRemaining || (wildcardDisabled && exoabilityCount == 2)){
       self.pointsUsed = 0;
-      return [self getExoabilityCount:pointsRemaining];
+      return [self getExoabilityCount:pointsRemaining wildcardDisabled:wildcardDisabled];
    }
    
    return exoabilityCount;

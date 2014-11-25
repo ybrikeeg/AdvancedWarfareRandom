@@ -11,12 +11,12 @@
 
 @implementation ExoLauncher
 
-- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining{
+- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining wildcardDisabled:(bool)wildcardDisabled{
    
    self = [super init];
    if (self) {
       self.exolauncherArrayStrings = [[NSMutableArray alloc] init];
-      int exolauncherCount = [self getExolauncherCount:pointsRemaining];
+      int exolauncherCount = [self getExolauncherCount:pointsRemaining wildcardDisabled:wildcardDisabled];
       [self pickexolaunchers:exolauncherCount];
    }
    
@@ -49,7 +49,7 @@
    }
 }
 
-- (int)getExolauncherCount:(NSInteger) pointsRemaining{
+- (int)getExolauncherCount:(NSInteger) pointsRemaining wildcardDisabled:(bool)wildcardDisabled{
    int exolauncherChance = (arc4random()%100) + 1;
    int exolauncherCount = 0;
    if (exolauncherChance <= PROBABILITY_0_EXO){
@@ -64,10 +64,10 @@
    }else{
       NSLog(@"WHATTT");
    }
-   
-   while (self.pointsUsed > pointsRemaining){
+
+   while (self.pointsUsed > pointsRemaining || (wildcardDisabled && exolauncherCount == 2)){
       self.pointsUsed = 0;
-      return [self getExolauncherCount:pointsRemaining];
+      return [self getExolauncherCount:pointsRemaining wildcardDisabled:wildcardDisabled];
    }
    
    return exolauncherCount;

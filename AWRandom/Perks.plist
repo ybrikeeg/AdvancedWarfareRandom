@@ -4,27 +4,27 @@
 <dict>
 	<key>Perk 1</key>
 	<array>
-		<string>Flak Jacket</string>
-		<string>Hardline</string>
 		<string>Lightweight</string>
-		<string>Scavanger</string>
-		<string>Ghost</string>
+		<string>Low Profile</string>
+		<string>Flak Jacket</string>
+		<string>Overcharged</string>
+		<string>Danger Close</string>
 	</array>
 	<key>Perk 2</key>
 	<array>
-		<string>Sleight of Hand</string>
-		<string>Steady Aim</string>
-		<string>Warlord</string>
-		<string>Hardened</string>
-		<string>Scout</string>
+		<string>Peripherals</string>
+		<string>Blind Eye</string>
+		<string>Cold-Blooded</string>
+		<string>Gung-Ho</string>
+		<string>Fast Hands</string>
 	</array>
 	<key>Perk 3</key>
 	<array>
-		<string>Marathon</string>
-		<string>Hacker</string>
-		<string>Second Chance</string>
-		<string>Tactical Mask</string>
-		<string>Ninja</string>
+		<string>Hard Wired</string>
+		<string>Toughness</string>
+		<string>Blast Suppressor</string>
+		<string>Scavenger</string>
+		<string>Hardline</string>
 	</array>
 </dict>
 </plist>

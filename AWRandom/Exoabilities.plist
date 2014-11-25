@@ -4,11 +4,14 @@
 <dict>
 	<key>exoabilities</key>
 	<array>
-		<string>exo1</string>
-		<string>exo2</string>
-		<string>exo3</string>
-		<string>exo4</string>
-		<string>exo5</string>
+		<string>Exo Shield</string>
+		<string>Exo Overclock</string>
+		<string>Exo Mute Device</string>
+		<string>Exo Stim</string>
+		<string>Exo Cloak</string>
+		<string>Exo Hover</string>
+		<string>Exo Ping</string>
+		<string>Exo Trophy System</string>
 	</array>
 </dict>
 </plist>

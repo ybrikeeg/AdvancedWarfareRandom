@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *exolauncherArrayStrings;
 @property (nonatomic) NSInteger pointsUsed;
 
-- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining;
+- (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining wildcardDisabled:(bool)wildcardDisabled;
+
+
 
 @end

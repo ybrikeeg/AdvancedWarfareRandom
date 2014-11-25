@@ -23,6 +23,7 @@
 @property (nonatomic, strong) Scorestreaks *scorestreak;
 @property (nonatomic, strong) ExoAbility *exoability;
 @property (nonatomic, strong) ExoLauncher *exolauncher;
+@property (nonatomic, strong) NSMutableArray *wildcardNames;
 @end
 
 @implementation MainViewController
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
    
    self.modularPartsUsed = [[NSMutableArray alloc] init];
+   self.wildcardNames = [[NSMutableArray alloc] init];
    for (int i = 0; i < 100; i++){
       [self createClass:nil];
    }
@@ -42,6 +44,7 @@
    NSLog(@"Create a class");
    self.pointsRemaining = 13;
    [self.modularPartsUsed removeAllObjects];
+   [self.wildcardNames removeAllObjects];
    //pick 1 random starting point
    
    while (self.pointsRemaining != 0){
@@ -50,31 +53,52 @@
          if (modularIndex == 0){
             self.primary = [[Primary alloc] initWithPointsRemaining:self.pointsRemaining];
             self.pointsRemaining = self.pointsRemaining - self.primary.pointsUsed;
+            if (self.primary.pointsUsed == 5){
+               [self.wildcardNames addObject:@"Primary Gunfighter"];
+            }
          } else if (modularIndex == 1){
             self.secondary = [[Secondary alloc] initWithPointsRemaining:self.pointsRemaining];
             self.pointsRemaining = self.pointsRemaining - self.secondary.pointsUsed;
-            
+            if (self.secondary.pointsUsed == 4){
+               [self.wildcardNames addObject:@"Secondary Gunfighter"];
+            }
          } else if (modularIndex == 2){
             self.perks = [[Perks alloc] initWithPointsRemaining:self.pointsRemaining];
             self.pointsRemaining = self.pointsRemaining - self.perks.pointsUsed;
-            
+            if ([self.perks.wildCardPerk1Name length] > 0){
+               [self.wildcardNames addObject:@"Perk 1 Greed"];
+            }
+            if ([self.perks.wildCardPerk2Name length] > 0){
+               [self.wildcardNames addObject:@"Perk 2 Greed"];
+            }
+            if ([self.perks.wildCardPerk3Name length] > 0){
+               [self.wildcardNames addObject:@"Perk 3 Greed"];
+            }
          } else if (modularIndex == 3){
             self.scorestreak = [[Scorestreaks alloc] initWithPointsRemaining:self.pointsRemaining];
             self.pointsRemaining = self.pointsRemaining - self.scorestreak.pointsUsed;
-            
+            if (self.scorestreak.pointsUsed == 5){
+               [self.wildcardNames addObject:@"Streaker"];
+            }
          } else if (modularIndex == 4){
-            self.exoability = [[ExoAbility alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.exoability = [[ExoAbility alloc] initWithPointsRemaining:self.pointsRemaining wildcardDisabled:[self.wildcardNames containsObject:@"Bombardier"]];
             self.pointsRemaining = self.pointsRemaining - self.exoability.pointsUsed;
-            
+            if (self.exoability.pointsUsed == 3){
+               [self.wildcardNames addObject:@"Tactician"];
+            }
          } else if (modularIndex == 5){
-            self.exolauncher = [[ExoLauncher alloc] initWithPointsRemaining:self.pointsRemaining];
+            self.exolauncher = [[ExoLauncher alloc] initWithPointsRemaining:self.pointsRemaining wildcardDisabled:[self.wildcardNames containsObject:@"Tactician"]];
             self.pointsRemaining = self.pointsRemaining - self.exolauncher.pointsUsed;
+            if (self.exolauncher.pointsUsed == 3){
+               [self.wildcardNames addObject:@"Bombardier"];
+            }
          }
       }
       
       if (self.pointsRemaining != 0){
          self.pointsRemaining = 13;
          [self.modularPartsUsed removeAllObjects];
+         [self.wildcardNames removeAllObjects];
       }
       
    }
@@ -90,10 +114,12 @@
    NSLog(@"Scorestreaks: %@", self.scorestreak.streakArrayStrings);
    NSLog(@"Exoability: %@", self.exoability.exoAbilityArrayStrings);
    NSLog(@"Exolauncher: %@", self.exolauncher.exolauncherArrayStrings);
+   NSLog(@"WIldcardss: %@", self.wildcardNames);
    
-   NSLog(@"final points remaining: %ld\n\n", (long)self.pointsRemaining);
-   
-   
+   if ([self.wildcardNames containsObject:@"Tactician"] && [self.wildcardNames containsObject:@"Bombardier"]){
+      NSLog(@"CRAP");
+   }
+   NSLog(@"final points remaining: %ld\n\n\n\n\n", (long)self.pointsRemaining);
 }
 
 - (int)pickModularIndex{

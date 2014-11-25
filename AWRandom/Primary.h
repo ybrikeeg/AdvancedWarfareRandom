@@ -16,5 +16,6 @@
 @property (nonatomic, strong) Attachments *attachments;
 @property (nonatomic) NSInteger pointsUsed;
 
+
 - (instancetype)initWithPointsRemaining:(NSInteger)pointsRemaining;
 @end
