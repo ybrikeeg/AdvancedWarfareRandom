@@ -14,7 +14,7 @@
    
    self = [super init];
    if (self) {
-
+      
       self.attachmentList = [[NSMutableArray alloc] init];
       //NSLog(@"Looking for %d attachments for %@", attachmentCount, gunName);
       [self getAttachments:gunName numberOfAttachments: attachmentCount isPrimary:isPrimary];
@@ -37,8 +37,9 @@
    
    for (int i = 0; i < attachmentCount; i++){
       while (true){
-      int attachIndex = arc4random()%[gunAttachments count];
-      NSString *attachString = [gunAttachments objectAtIndex:attachIndex];
+         if ([gunAttachments count] == 0) break;
+         int attachIndex = arc4random()%[gunAttachments count];
+         NSString *attachString = [gunAttachments objectAtIndex:attachIndex];
          if (![self.attachmentList containsObject:attachString]){
             if ([self checkIfAttachmentIsCompatible:attachString]){
                //NSLog(@"compatible");
@@ -46,8 +47,6 @@
                break;
             }
          }
-
-
       }
    }
 }

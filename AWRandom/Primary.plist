@@ -2,14 +2,389 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UMP</key>
+	<key>AK12</key>
 	<array>
-		<string>Red Dot</string>
-		<string>ACOG</string>
-		<string>Silencer</string>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+		<string>Dual Magazine</string>
+	</array>
+	<key>AMR9</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+		<string>Grenade Launcher</string>
+	</array>
+	<key>ARX-160</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>ASM1</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+		<string>Advanced Rifling</string>
+		<string>Dual Magazine</string>
 		<string>Rapid Fire</string>
-		<string>Grip</string>
-		<string>Akimbo</string>
+	</array>
+	<key>Ameli</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Advanced Rifling</string>
+		<string>Quickdraw Grip</string>
+		<string>Rapid Fire</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Atlas20mm</key>
+	<array>
+		<string>Variable Zoom Scope</string>
+		<string>Ballistic CPU</string>
+		<string>Stock</string>
+		<string>Parabolic Microphone</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Bal-27</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Bulldog</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Target Enhancer</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Advanced Rifling</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Crossbow</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Crossbow Scope</string>
+	</array>
+	<key>EM1</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Scope</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Heat Sink</string>
+	</array>
+	<key>EPM3</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Scope</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Heat Sink</string>
+	</array>
+	<key>HBRa3</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Heavy Shield</key>
+	<array>
+		<string>Fast Melee</string>
+		<string>Shock Plant</string>
+		<string>Fast Plant</string>
+	</array>
+	<key>IMR</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>KF5</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>Lynx</key>
+	<array>
+		<string>Variable Zoom Scope</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Ballistic CPU</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Ironsights</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>MDL</key>
+	<array/>
+	<key>MK14</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Grenade Launcher</string>
+		<string>Extended Mags</string>
+		<string>Dual Magazine</string>
+	</array>
+	<key>MORS</key>
+	<array>
+		<string>Variable Zoom Scope</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Ballistic CPU</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Parabolic Microphone</string>
+		<string>Ironsights</string>
+	</array>
+	<key>MP11</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+		<string>Advanced Rifling</string>
+		<string>Extended Mags</string>
+		<string>Dual Magazine</string>
+	</array>
+	<key>NA-45</key>
+	<array>
+		<string>Variable Zoom Scope</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Ballistic CPU</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Ironsights</string>
+	</array>
+	<key>Pytaek</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Advanced Rifling</string>
+		<string>Quickdraw Grip</string>
+		<string>Rapid Fire</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>S-12</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Target Enhancer</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Foregrip</string>
+		<string>Parabolic Microphone</string>
+		<string>Advanced Rifling</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>SAC3</key>
+	<array>
+		<string>Laser Sight</string>
+		<string>Tracker</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Extended Mags</string>
+		<string>Advanced Rifling</string>
+		<string>Rapid Fire</string>
+	</array>
+	<key>SN6</key>
+	<array>
+		<string>Hybrid Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>Thermal</string>
+		<string>ACOG Scope</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Tracker</string>
+		<string>Foregrip</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+		<string>Advanced Rifling</string>
+		<string>Dual Magazine</string>
+		<string>Rapid Fire</string>
+	</array>
+	<key>Tac-19</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Target Enhancer</string>
+		<string>Laser Sight</string>
+		<string>Stock</string>
+		<string>Foregrip</string>
+		<string>Parabolic Microphone</string>
+		<string>Advanced Rifling</string>
+		<string>Quickdraw Grip</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>XMG</key>
+	<array>
+		<string>Laser Sight</string>
+		<string>Tracker</string>
+		<string>Rapid Fire</string>
+		<string>Extended Mags</string>
+		<string>Parabolic Microphone</string>
 	</array>
 </dict>
 </plist>

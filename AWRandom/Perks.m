@@ -28,7 +28,6 @@
       [self selectPerk:[[indexArray objectAtIndex:index] intValue] withPointsRemaining: pointsRemaining - self.pointsUsed];
       [indexArray removeObjectAtIndex:index];
    }
-   
 }
 
 - (void)setPerkName:(int)perkIndex wildcard:(bool) wildcard clear:(bool)clear{

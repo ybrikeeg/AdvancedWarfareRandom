@@ -103,6 +103,8 @@
       
    }
    
+   [self.wildcardNames sortUsingSelector:@selector(caseInsensitiveCompare:)];
+
    NSLog(@"Primary: %@", self.primary.primaryName);
    NSLog(@"Primary attach: %@", self.primary.attachments.attachmentList);
    NSLog(@"Secondary: %@", self.secondary.secondaryName);
@@ -116,9 +118,6 @@
    NSLog(@"Exolauncher: %@", self.exolauncher.exolauncherArrayStrings);
    NSLog(@"WIldcardss: %@", self.wildcardNames);
    
-   if ([self.wildcardNames containsObject:@"Tactician"] && [self.wildcardNames containsObject:@"Bombardier"]){
-      NSLog(@"CRAP");
-   }
    NSLog(@"final points remaining: %ld\n\n\n\n\n", (long)self.pointsRemaining);
 }
 
