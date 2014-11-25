@@ -28,6 +28,7 @@
 		424B46611A2333740072B206 /* Exolaunchers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46601A2333740072B206 /* Exolaunchers.plist */; };
 		424B46631A2334420072B206 /* Secondary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46621A2334420072B206 /* Secondary.plist */; };
 		424B46661A2337F00072B206 /* Attachments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46651A2337F00072B206 /* Attachments.plist */; };
+		42BB2C1B1A253B9900B645BB /* DisplayCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BB2C1A1A253B9900B645BB /* DisplayCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		424B46601A2333740072B206 /* Exolaunchers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exolaunchers.plist; sourceTree = "<group>"; };
 		424B46621A2334420072B206 /* Secondary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secondary.plist; sourceTree = "<group>"; };
 		424B46651A2337F00072B206 /* Attachments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Attachments.plist; sourceTree = "<group>"; };
+		42BB2C191A253B9900B645BB /* DisplayCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayCase.h; sourceTree = "<group>"; };
+		42BB2C1A1A253B9900B645BB /* DisplayCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				423288501A22881000F7BDFA /* AppDelegate.m */,
 				423288521A22881000F7BDFA /* MainViewController.h */,
 				423288531A22881000F7BDFA /* MainViewController.m */,
+				42BB2C191A253B9900B645BB /* DisplayCase.h */,
+				42BB2C1A1A253B9900B645BB /* DisplayCase.m */,
 				423288711A228AD200F7BDFA /* Primary.h */,
 				423288721A228AD200F7BDFA /* Primary.m */,
 				423288741A228ADB00F7BDFA /* Secondary.h */,
@@ -300,6 +305,7 @@
 				4232887C1A228AF500F7BDFA /* Scorestreaks.m in Sources */,
 				423288821A228B0A00F7BDFA /* ExoLauncher.m in Sources */,
 				423288791A228AE200F7BDFA /* Perks.m in Sources */,
+				42BB2C1B1A253B9900B645BB /* DisplayCase.m in Sources */,
 				423288761A228ADB00F7BDFA /* Secondary.m in Sources */,
 				4232884E1A22881000F7BDFA /* main.m in Sources */,
 			);

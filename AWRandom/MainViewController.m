@@ -13,7 +13,7 @@
 #import "Scorestreaks.h"
 #import "ExoAbility.h"
 #import "ExoLauncher.h"
-
+#import "DisplayCase.h"
 @interface MainViewController ()
 @property (nonatomic) NSInteger pointsRemaining;
 @property (nonatomic, strong) NSMutableArray *modularPartsUsed;
@@ -32,11 +32,16 @@
 - (void)viewDidLoad {
    self.modularPartsUsed = [[NSMutableArray alloc] init];
    self.wildcardNames = [[NSMutableArray alloc] init];
-   for (int i = 0; i < 100; i++){
-      [self createClass:nil];
-   }
+//   for (int i = 0; i < 100; i++){
+//      [self createClass:nil];
+//   }
+   
+   DisplayCase *display = [[DisplayCase alloc] initWithFrame:self.view.frame];
+   [self.view addSubview:display];
+   
    [super viewDidLoad];
 }
+
 
 - (IBAction)createClass:(id)sender {
    NSLog(@"Create a class");
