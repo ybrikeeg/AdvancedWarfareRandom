@@ -30,14 +30,12 @@
 
 
 - (void)viewDidLoad {
-   
    self.modularPartsUsed = [[NSMutableArray alloc] init];
    self.wildcardNames = [[NSMutableArray alloc] init];
    for (int i = 0; i < 100; i++){
       [self createClass:nil];
    }
    [super viewDidLoad];
-   // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (IBAction)createClass:(id)sender {

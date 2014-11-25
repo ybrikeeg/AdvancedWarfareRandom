@@ -2,22 +2,58 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UMP</key>
+	<key>Atlas 45</key>
 	<array>
-		<string>Red Dot</string>
-		<string>ACOG</string>
-		<string>Silencer</string>
-		<string>Rapid Fire</string>
-		<string>Grip</string>
+		<string>Red Dot Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Sight</string>
+		<string>Laser Sight</string>
+		<string>Tactical Knife</string>
 		<string>Akimbo</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Extended Mags</string>
 	</array>
-	<key>Scar</key>
+	<key>MAAWS</key>
+	<array/>
+	<key>MAHEM</key>
+	<array/>
+	<key>MP443 Grach</key>
 	<array>
-		<string>Red Dot</string>
-		<string>ACOG</string>
-		<string>Silencer</string>
-		<string>Grip</string>
+		<string>Red Dot Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Sight</string>
+		<string>Laser Sight</string>
+		<string>Tactical Knife</string>
 		<string>Akimbo</string>
+		<string>Suppressor</string>
+		<string>Parabolic Microphone</string>
+		<string>Extended Mags</string>
 	</array>
+	<key>PDW</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Sight</string>
+		<string>Tactical Knife</string>
+		<string>Akimbo</string>
+		<string>Suppressor</string>
+		<string>Extended Mags</string>
+	</array>
+	<key>RW1</key>
+	<array>
+		<string>Red Dot Sight</string>
+		<string>Auto Focus Sight</string>
+		<string>Target Enhancer</string>
+		<string>ACOG Sight</string>
+		<string>Tactical Knife</string>
+		<string>Advanced Rifling</string>
+		<string>RW1 Scope</string>
+	</array>
+	<key>Stinger M7</key>
+	<array/>
 </dict>
 </plist>

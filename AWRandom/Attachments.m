@@ -7,14 +7,16 @@
 //
 
 #import "Attachments.h"
-
+@interface Attachments()
+@property (nonatomic) NSInteger loopCount;
+@end
 @implementation Attachments
 
 - (instancetype)initWithGunName:(NSString *)gunName numberOfAttachments:(int)attachmentCount isPrimary:(BOOL)isPrimary{
    
    self = [super init];
    if (self) {
-      
+      self.loopCount = 0;
       self.attachmentList = [[NSMutableArray alloc] init];
       //NSLog(@"Looking for %d attachments for %@", attachmentCount, gunName);
       [self getAttachments:gunName numberOfAttachments: attachmentCount isPrimary:isPrimary];
@@ -34,7 +36,7 @@
    NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
    
    NSArray *gunAttachments = [gunOtherDictionary objectForKey:gunName];
-   
+   NSLog(@"Gun: %@ -> %d", gunName, attachmentCount);
    for (int i = 0; i < attachmentCount; i++){
       while (true){
          if ([gunAttachments count] == 0) break;
@@ -42,9 +44,12 @@
          NSString *attachString = [gunAttachments objectAtIndex:attachIndex];
          if (![self.attachmentList containsObject:attachString]){
             if ([self checkIfAttachmentIsCompatible:attachString]){
-               //NSLog(@"compatible");
+
                [self.attachmentList addObject:attachString];
                break;
+            }
+            if (self.loopCount == 50){
+               return;
             }
          }
       }
@@ -52,6 +57,10 @@
 }
 
 - (bool)checkIfAttachmentIsCompatible:(NSString *)attach{
+   self.loopCount++;
+   if (self.loopCount == 50){
+      return false;
+   }
    NSBundle *attachBundle = [NSBundle mainBundle];
    NSString *attachPlistPath = [attachBundle pathForResource:@"Attachments" ofType:@"plist"];
    NSDictionary *attachDictionary = [[NSDictionary alloc] initWithContentsOfFile:attachPlistPath];
