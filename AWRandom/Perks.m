@@ -14,8 +14,8 @@
    
    self = [super init];
    if (self) {
-      self.pointsUsed = 0;
-      [self selectPrimaryPerks: pointsRemaining];
+         self.pointsUsed = 0;
+         [self selectPrimaryPerks: pointsRemaining];
    }
    
    return self;
@@ -78,7 +78,7 @@
       [self setPerkName:perkIndex wildcard:NO clear:YES];
    }
    
-   if (used > pointsRemaining){
+   if (used > pointsRemaining || ([self.perk1Name isEqualToString: self.wildCardPerk1Name] && self.perk1Name) || ([self.perk2Name  isEqualToString: self.wildCardPerk2Name] && self.perk2Name) || ([self.perk3Name isEqualToString: self.wildCardPerk3Name] && self.perk3Name)){
       [self setPerkName:perkIndex wildcard:NO clear:YES];
       if (wildcard){
          [self setPerkName:perkIndex wildcard:YES clear:YES];

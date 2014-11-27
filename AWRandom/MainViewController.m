@@ -24,6 +24,7 @@
 @property (nonatomic, strong) ExoAbility *exoability;
 @property (nonatomic, strong) ExoLauncher *exolauncher;
 @property (nonatomic, strong) NSMutableArray *wildcardNames;
+@property (nonatomic, strong) DisplayCase *display;
 @end
 
 @implementation MainViewController
@@ -36,14 +37,13 @@
 //      [self createClass:nil];
 //   }
    
-   DisplayCase *display = [[DisplayCase alloc] initWithFrame:self.view.frame];
-   [self.view addSubview:display];
+   self.display = [[DisplayCase alloc] initWithFrame:self.view.frame];
+   [self.view addSubview:self.display];
    
    [super viewDidLoad];
 }
 
-
-- (IBAction)createClass:(id)sender {
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
    NSLog(@"Create a class");
    self.pointsRemaining = 13;
    [self.modularPartsUsed removeAllObjects];
@@ -98,16 +98,24 @@
          }
       }
       
-      if (self.pointsRemaining != 0){
+      bool exo1 = (self.exoability.pointsUsed == 3 && self.exolauncher.pointsUsed > 0);
+      bool exo2 = (self.exoability.pointsUsed > 0 && self.exolauncher.pointsUsed == 3);
+
+      if (self.pointsRemaining != 0 || exo1 || exo2){
          self.pointsRemaining = 13;
          [self.modularPartsUsed removeAllObjects];
          [self.wildcardNames removeAllObjects];
       }
       
    }
-   
-   [self.wildcardNames sortUsingSelector:@selector(caseInsensitiveCompare:)];
 
+   [self.wildcardNames sortUsingSelector:@selector(caseInsensitiveCompare:)];
+   for (int i = [self.wildcardNames count]; i < 3; i++){
+      [self.wildcardNames addObject:@""];
+   }
+   
+   [self.display updateUIWithPrimary:self.primary withSecondary:self.secondary withPerks:self.perks withScorestreak:self.scorestreak withExoability:self.exoability withExolauncher:self.exolauncher withWildcards: self.wildcardNames];
+   
    NSLog(@"Primary: %@", self.primary.primaryName);
    NSLog(@"Primary attach: %@", self.primary.attachments.attachmentList);
    NSLog(@"Secondary: %@", self.secondary.secondaryName);

@@ -18,7 +18,7 @@
       //0 pts or more
       int exist = arc4random()%100;
       if (exist < (100 - PROBABILITY_SECONDARY_EXIST) || pointsRemaining == 0){
-         self.secondaryName = @"blank";
+         self.secondaryName = @"";
       }else{
          //get gun name
          self.secondaryName = [self getSecondaryName];

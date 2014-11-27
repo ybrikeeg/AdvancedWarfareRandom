@@ -20,7 +20,9 @@
       self.attachmentList = [[NSMutableArray alloc] init];
       //NSLog(@"Looking for %d attachments for %@", attachmentCount, gunName);
       [self getAttachments:gunName numberOfAttachments: attachmentCount isPrimary:isPrimary];
-      //NSLog(@"final attachments: %@", self.attachmentList);
+      for (int i = [self.attachmentList count]; i < 4; i++){
+         [self.attachmentList addObject:@""];
+      }
    }
    
    return self;
@@ -36,7 +38,6 @@
    NSDictionary *gunOtherDictionary = [[NSDictionary alloc] initWithContentsOfFile:gunPlistPath];
    
    NSArray *gunAttachments = [gunOtherDictionary objectForKey:gunName];
-   NSLog(@"Gun: %@ -> %d", gunName, attachmentCount);
    for (int i = 0; i < attachmentCount; i++){
       while (true){
          if ([gunAttachments count] == 0) break;

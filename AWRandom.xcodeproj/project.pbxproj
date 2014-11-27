@@ -146,6 +146,7 @@
 				4232887E1A228B0100F7BDFA /* ExoAbility.m */,
 				423288801A228B0A00F7BDFA /* ExoLauncher.h */,
 				423288811A228B0A00F7BDFA /* ExoLauncher.m */,
+				42A4196C1A27341E00D442EC /* Images */,
 				424B46641A2336D50072B206 /* plist */,
 				423288551A22881000F7BDFA /* Main.storyboard */,
 				423288581A22881000F7BDFA /* Images.xcassets */,
@@ -193,6 +194,13 @@
 				424B46601A2333740072B206 /* Exolaunchers.plist */,
 			);
 			name = plist;
+			sourceTree = "<group>";
+		};
+		42A4196C1A27341E00D442EC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

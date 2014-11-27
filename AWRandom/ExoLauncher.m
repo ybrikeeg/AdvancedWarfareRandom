@@ -18,6 +18,10 @@
       self.exolauncherArrayStrings = [[NSMutableArray alloc] init];
       int exolauncherCount = [self getExolauncherCount:pointsRemaining wildcardDisabled:wildcardDisabled];
       [self pickexolaunchers:exolauncherCount];
+      
+      for (int i = [self.exolauncherArrayStrings count]; i < 2; i++){
+         [self.exolauncherArrayStrings addObject:@""];
+      }
    }
    
    return self;

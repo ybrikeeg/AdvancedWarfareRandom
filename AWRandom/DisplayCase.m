@@ -99,8 +99,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
    self = [super initWithFrame:frame];
    if (self) {
-      
-      
+   
       self.primaryShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, EDGE_OFFSET, WIDTH, 200)];
       [self addSubview: self.primaryShell];
       self.secondaryShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, self.primaryShell.frame.origin.y + self.primaryShell.frame.size.height + EDGE_OFFSET, WIDTH, 120)];
@@ -136,6 +135,88 @@
    
    return self;
 }
+
+- (void)updateUIWithPrimary:(Primary *)primary withSecondary:(Secondary *)secondary withPerks:(Perks *)perks withScorestreak:(Scorestreaks *)scorestreak withExoability:(ExoAbility *)exoability withExolauncher:(ExoLauncher *)exolauncher withWildcards:(NSMutableArray *)wildcardNames{
+
+   self.primaryLabel.text = primary.primaryName;
+   [self.primaryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [primary.primaryName.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"_"]]]];
+   
+   self.primaryAttachmentLabel1.text = [primary.attachments.attachmentList objectAtIndex:0];
+   self.primaryAttachmentLabel2.text = [primary.attachments.attachmentList objectAtIndex:1];
+   self.primaryAttachmentLabel3.text = [primary.attachments.attachmentList objectAtIndex:2];
+
+   [self.primaryAttachmentView1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.primaryAttachmentLabel1.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.primaryAttachmentView2 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.primaryAttachmentLabel2.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.primaryAttachmentView3 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.primaryAttachmentLabel3.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   self.secondaryLabel.text = secondary.secondaryName;
+   
+   [self.secondaryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [secondary.secondaryName.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"_"]]]];
+
+   
+   self.secondaryAttachmentLabel1.text = [secondary.attachments.attachmentList objectAtIndex:0];
+   self.secondaryAttachmentLabel2.text = [secondary.attachments.attachmentList objectAtIndex:1];
+   
+   [self.secondaryAttachmentView1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.secondaryAttachmentLabel1.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.secondaryAttachmentView2 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.secondaryAttachmentLabel2.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   
+   
+   self.perk1Label.text = perks.perk1Name;
+   self.perk1WildcardLabel.text = perks.wildCardPerk1Name;
+   [self.perk1Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.perk1Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.perk1WildcardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.wildCardPerk1Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   self.perk2Label.text = perks.perk2Name;
+   self.perk2WildcardLabel.text = perks.wildCardPerk2Name;
+   [self.perk2Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.perk2Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.perk2WildcardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.wildCardPerk2Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   
+   self.perk3Label.text = perks.perk3Name;
+   self.perk3WildcardLabel.text = perks.wildCardPerk3Name;
+   [self.perk3Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.perk3Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.perk3WildcardImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [perks.wildCardPerk3Name.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   
+   
+   self.streak1Name.text = [scorestreak.streakArrayStrings objectAtIndex:0];
+   self.streak2Name.text = [scorestreak.streakArrayStrings objectAtIndex:1];
+   self.streak3Name.text = [scorestreak.streakArrayStrings objectAtIndex:2];
+   self.streak4Name.text = [scorestreak.streakArrayStrings objectAtIndex:3];
+
+   [self.streak1Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.streak1Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.streak2Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.streak2Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.streak3Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.streak3Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.streak4Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.streak4Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   
+   self.exoabilityName1.text = [exoability.exoAbilityArrayStrings objectAtIndex:0];
+   self.exoabilityName2.text = [exoability.exoAbilityArrayStrings objectAtIndex:1];
+   
+   NSLog(@"%@ and %@", [self.exoabilityName1.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"], [self.exoabilityName2.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]);
+   [self.exoabilityImage1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.exoabilityName1.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.exoabilityImage2 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.exoabilityName2.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   
+   self.exolauncherName1.text = [exolauncher.exolauncherArrayStrings objectAtIndex:0];
+   self.exolauncherName2.text = [exolauncher.exolauncherArrayStrings objectAtIndex:1];
+   
+   [self.exolauncherImage1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.exolauncherName1.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.exolauncherImage2 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.exolauncherName2.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+   
+   self.wild1Name.text = [wildcardNames objectAtIndex:0];
+   self.wild2Name.text = [wildcardNames objectAtIndex:1];
+   self.wild3Name.text = [wildcardNames objectAtIndex:2];
+
+   [self.wild1Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.wild1Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.wild2Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.wild2Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+   [self.wild3Image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", [self.wild3Name.text.lowercaseString stringByReplacingOccurrencesOfString:@" " withString:@"-"]]]];
+
+}
+
+
+
 
 - (UIView *)createViewForIndex:(int)index{
    if (index == 0){
@@ -283,9 +364,9 @@
    
    NSInteger sideLength = (self.exoshell.frame.size.height - (self.exoabilityName2.frame.origin.y + self.exoabilityName2.frame.size.height));
 
-   self.exoabilityImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
-   self.exoabilityImage2.backgroundColor = [self randomColor];
-   [self.exoshell addSubview:self.exoabilityImage2];
+   self.exoabilityImage1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.exoabilityImage1.backgroundColor = [self randomColor];
+   [self.exoshell addSubview:self.exoabilityImage1];
    
    self.exoabilityImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(sideLength, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
    self.exoabilityImage2.backgroundColor = [self randomColor];

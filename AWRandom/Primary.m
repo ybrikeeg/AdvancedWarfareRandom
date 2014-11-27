@@ -19,7 +19,7 @@
       int exist = arc4random()%100;
       //even thought points were allocated to primary, no primary will be selected
       if (exist < (100 - PROBABILITY_PRIMARY_EXIST) || pointsRemaining == 0){
-         self.primaryName = @"blank";
+         self.primaryName = @"";
          //NSLog(@"dne");
       }else{
          //get gun name

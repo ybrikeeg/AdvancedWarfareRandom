@@ -17,6 +17,10 @@
       self.exoAbilityArrayStrings = [[NSMutableArray alloc] init];
       int exoabilityCount = [self getExoabilityCount:pointsRemaining wildcardDisabled:wildcardDisabled];
       [self pickExoabilities:exoabilityCount];
+      
+      for (int i = [self.exoAbilityArrayStrings count]; i < 2; i++){
+         [self.exoAbilityArrayStrings addObject:@""];
+      }
    }
    
    return self;

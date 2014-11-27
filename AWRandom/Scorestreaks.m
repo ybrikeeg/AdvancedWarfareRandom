@@ -21,6 +21,10 @@
 
       int scorestreakCount = [self getScorestreakCount:pointsRemaining];
       [self pickScorestreaks:scorestreakCount];
+      
+      for (int i = [self.streakArrayStrings count]; i < 5; i++){
+         [self.streakArrayStrings addObject:@""];
+      }
    }
    
    return self;
