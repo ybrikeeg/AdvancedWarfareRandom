@@ -14,6 +14,7 @@
 #define PAGECONTROL_HEIGHT 200
 
 @interface DisplayCase ()
+@property (nonatomic, strong) UIView *primaryShell;
 @property (nonatomic, strong) UIImageView *primaryImage;
 @property (nonatomic, strong) UILabel *primaryLabel;
 @property (nonatomic, strong) UIView *primaryAttachmentShell;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) UILabel *primaryAttachmentLabel2;
 @property (nonatomic, strong) UILabel *primaryAttachmentLabel3;
 
+@property (nonatomic, strong) UIView *secondaryShell;
 @property (nonatomic, strong) UIImageView *secondaryImage;
 @property (nonatomic, strong) UILabel *secondaryLabel;
 @property (nonatomic, strong) UIView *secondaryAttachmentShell;
@@ -97,13 +99,21 @@
 - (instancetype)initWithFrame:(CGRect)frame{
    self = [super initWithFrame:frame];
    if (self) {
-      //[self layoutPrimary];
-      //[self layoutSecondary];
       
-      [self layoutPerks];
-      //[self layoutScorestreaks];
-      //[self layoutExo];
-      //[self layoutWildcards];
+      
+      self.primaryShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, EDGE_OFFSET, WIDTH, 200)];
+      [self addSubview: self.primaryShell];
+      self.secondaryShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, self.primaryShell.frame.origin.y + self.primaryShell.frame.size.height + EDGE_OFFSET, WIDTH, 120)];
+      [self addSubview: self.secondaryShell];
+      
+      
+      [self layoutPrimary];
+      [self layoutSecondary];
+      
+      
+      self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+      [[self.pageController view] setFrame:CGRectMake(EDGE_OFFSET, self.secondaryShell.frame.origin.y + self.secondaryShell.frame.size.height + EDGE_OFFSET, WIDTH, 200)];
+
       
       self.vcs = [[NSMutableArray alloc] init];
       for (int i = 0; i < 4; i++){
@@ -113,17 +123,14 @@
       }
       
       NSArray *viewControllers = [NSArray arrayWithObject:[self.vcs objectAtIndex:0]];
-      self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
       [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 
       self.pageController.dataSource = self;
-      [[self.pageController view] setFrame:CGRectMake(EDGE_OFFSET, 200, WIDTH, 230)];
-      self.pageController.view.backgroundColor = [self randomColor];
+      self.pageController.view.backgroundColor = [UIColor yellowColor];
       
       //[self addChildViewController:self.pageController];
       [self addSubview:[self.pageController view]];
       //[self.pageController didMoveToParentViewController:self];
-
 
    }
    
@@ -131,11 +138,6 @@
 }
 
 - (UIView *)createViewForIndex:(int)index{
-//   if (index == 0){
-//      [self layoutWildcards];
-//      return self.wildSehell;
-//   }
-   
    if (index == 0){
       [self layoutPerks];
       return self.perkShell;
@@ -190,7 +192,7 @@
    return 0;
 }
 - (void)layoutWildcards{
-   self.wildSehell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+   self.wildSehell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, self.pageController.view.frame.size.height - 36)];
 
    self.wildSehell.backgroundColor = [UIColor yellowColor];
    //[self addSubview:self.wildSehell];
@@ -208,8 +210,7 @@
    [self.wild1Name sizeThatFits:CGSizeMake(WIDTH/3, 30)];
    [self.wildSehell addSubview:self.wild1Name];
    
-   NSInteger sideLength = WIDTH/3;
-   
+   NSInteger sideLength = self.wildSehell.frame.size.height - (self.wild1Name.frame.origin.y + self.wild1Name.frame.size.height);
    
    self.wild1Image = [[UIImageView alloc] initWithFrame:CGRectMake((WIDTH/3 - sideLength)/2, self.wildSehell.frame.size.height - sideLength, sideLength, sideLength)];
    self.wild1Image.backgroundColor = [self randomColor];
@@ -249,8 +250,6 @@
    [self.wild3Name sizeThatFits:CGSizeMake(WIDTH/3, 30)];
    [self.wildSehell addSubview:self.wild3Name];
    
-   
-   
    self.wild3Image = [[UIImageView alloc] initWithFrame:CGRectMake(2 * WIDTH/3 + (WIDTH/3 - sideLength)/3, self.wildSehell.frame.size.height - sideLength, sideLength, sideLength)];
    self.wild3Image.backgroundColor = [self randomColor];
    [self.wildSehell addSubview:self.wild3Image];
@@ -258,7 +257,7 @@
 }
 
 - (void)layoutExo{
-   self.exoshell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+   self.exoshell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, self.pageController.view.frame.size.height - 36)];
 
    self.exoshell.backgroundColor = [self randomColor];
 //   [self addSubview:self.exoshell];
@@ -282,17 +281,15 @@
    [self.exoabilityName2 sizeThatFits:CGSizeMake(WIDTH/2, 30)];
    [self.exoshell addSubview:self.exoabilityName2];
    
-   NSInteger sideLength = (self.exoshell.frame.size.height - (self.exoabilityName2.frame.origin.y + self.exoabilityName2.frame.size.height))/2;
+   NSInteger sideLength = (self.exoshell.frame.size.height - (self.exoabilityName2.frame.origin.y + self.exoabilityName2.frame.size.height));
 
-   
-   self.exoabilityImage2 = [[UIImageView alloc] initWithFrame:CGRectMake((WIDTH/2 - sideLength)/2, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.exoabilityImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
    self.exoabilityImage2.backgroundColor = [self randomColor];
    [self.exoshell addSubview:self.exoabilityImage2];
    
-   self.exoabilityImage1 = [[UIImageView alloc] initWithFrame:CGRectMake((WIDTH/2 - sideLength)/2, self.exoabilityImage2.frame.origin.y - sideLength, sideLength, sideLength)];
-   self.exoabilityImage1.backgroundColor = [self randomColor];
-   [self.exoshell addSubview:self.exoabilityImage1];
-   
+   self.exoabilityImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(sideLength, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.exoabilityImage2.backgroundColor = [self randomColor];
+   [self.exoshell addSubview:self.exoabilityImage2];
    
    self.exolauncherTitle = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH/2, 0, WIDTH/2, 30)];
    self.exolauncherTitle.text = @"Exolauncher";
@@ -312,20 +309,19 @@
    [self.exolauncherName2 sizeThatFits:CGSizeMake(WIDTH/2, 30)];
    [self.exoshell addSubview:self.exolauncherName2];
    
-   self.exolauncherImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(WIDTH/2 + (WIDTH/2 - sideLength)/2, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.exolauncherImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(WIDTH/2, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
    self.exolauncherImage2.backgroundColor = [self randomColor];
    [self.exoshell addSubview:self.exolauncherImage2];
    
-   self.exolauncherImage1 = [[UIImageView alloc] initWithFrame:CGRectMake(WIDTH/2 + (WIDTH/2 - sideLength)/2, self.exolauncherImage2.frame.origin.y - sideLength, sideLength, sideLength)];
+   self.exolauncherImage1 = [[UIImageView alloc] initWithFrame:CGRectMake(WIDTH/2 + sideLength, self.exoshell.frame.size.height - sideLength, sideLength, sideLength)];
    self.exolauncherImage1.backgroundColor = [self randomColor];
    [self.exoshell addSubview:self.exolauncherImage1];
-   
 }
 
 - (void)layoutScorestreaks{
    NSInteger sideLength = WIDTH/4;
 
-      self.scorestreakShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+      self.scorestreakShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, self.pageController.view.frame.size.height - 36)];
    self.scorestreakShell.backgroundColor = [self randomColor];
    
    //[self addSubview:self.scorestreakShell];
@@ -397,11 +393,12 @@
    [self.scorestreakShell addSubview:self.streak4Image];
 }
 - (void)layoutPerks{
-   self.perkShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+   self.perkShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, self.pageController.view.frame.size.height - 75)];
+   self.perkShell.backgroundColor = [UIColor greenColor];
    //[self addSubview:self.perkShell];
    //perk 1
-   self.perk1Shell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
-   self.perk1Shell.backgroundColor = [self randomColor];
+   self.perk1Shell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
+   self.perk1Shell.backgroundColor = [UIColor orangeColor];
    [self.perkShell addSubview:self.perk1Shell];
    
    UILabel *perk1Title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.perk1Shell.frame.size.width, 30)];
@@ -425,18 +422,19 @@
    [self.perk1WildcardLabel sizeThatFits:CGSizeMake(self.perk1WildcardLabel.frame.size.width, self.perk1WildcardLabel.frame.size.height)];
    [self.perk1Shell addSubview:self.perk1WildcardLabel];
    
-   NSInteger sideLength = (self.perk1Shell.frame.size.height - (self.perk1WildcardLabel.frame.origin.y + self.perk1WildcardLabel.frame.size.height))/2;
-
-   self.perk1Image = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk1Shell.frame.size.width - sideLength)/2, self.perk1Shell.frame.size.height - sideLength, sideLength, sideLength)];
+   NSInteger sideLength = self.perk1Shell.frame.size.width/2;
+   
+   self.perk1Image = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.perk1Shell.frame.size.height - sideLength, sideLength,sideLength)];
    self.perk1Image.backgroundColor = [self randomColor];
    [self.perk1Shell addSubview:self.perk1Image];
    
-   self.perk1WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk1Shell.frame.size.width - sideLength)/2, self.perk1Image.frame.origin.y - sideLength, sideLength, sideLength)];
+   self.perk1WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake(sideLength, self.perk1Shell.frame.size.height - sideLength, sideLength,sideLength)];
    self.perk1WildcardImage.backgroundColor = [self randomColor];
    [self.perk1Shell addSubview:self.perk1WildcardImage];
    
    
-   self.perk2Shell = [[UIView alloc] initWithFrame:CGRectMake(WIDTH/3, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
+   self.perk2Shell = [[UIView alloc] initWithFrame:CGRectMake(WIDTH/3, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
+
    self.perk2Shell.backgroundColor = [self randomColor];
    [self.perkShell addSubview:self.perk2Shell];
 
@@ -461,16 +459,16 @@
    [self.perk2WildcardLabel sizeThatFits:CGSizeMake(self.perk2WildcardLabel.frame.size.width, self.perk2WildcardLabel.frame.size.height)];
    [self.perk2Shell addSubview:self.perk2WildcardLabel];
    
-   
-   self.perk2Image = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk2Shell.frame.size.width - sideLength)/2, self.perk2Shell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.perk2Image = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.perk2Shell.frame.size.height - sideLength, sideLength,sideLength)];
    self.perk2Image.backgroundColor = [self randomColor];
    [self.perk2Shell addSubview:self.perk2Image];
    
-   self.perk2WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk2Shell.frame.size.width - sideLength)/2, self.perk2Image.frame.origin.y - sideLength, sideLength, sideLength)];
+   self.perk2WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake(sideLength, self.perk2Shell.frame.size.height - sideLength, sideLength,sideLength)];
    self.perk2WildcardImage.backgroundColor = [self randomColor];
    [self.perk2Shell addSubview:self.perk2WildcardImage];
    
-   self.perk3Shell = [[UIView alloc] initWithFrame:CGRectMake(2 * WIDTH/3, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
+   
+   self.perk3Shell = [[UIView alloc] initWithFrame:CGRectMake(2 * WIDTH/3, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
    self.perk3Shell.backgroundColor = [self randomColor];
    [self.perkShell addSubview:self.perk3Shell];
    
@@ -496,28 +494,30 @@
    [self.perk3Shell addSubview:self.perk3WildcardLabel];
    
    
-   self.perk3Image = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk3Shell.frame.size.width - sideLength)/3, self.perk3Shell.frame.size.height - sideLength, sideLength, sideLength)];
+   self.perk3Image = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.perk3Shell.frame.size.height - sideLength, sideLength, sideLength)];
    self.perk3Image.backgroundColor = [self randomColor];
    [self.perk3Shell addSubview:self.perk3Image];
    
-   self.perk3WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake((self.perk3Shell.frame.size.width - sideLength)/3, self.perk3Image.frame.origin.y - sideLength, sideLength, sideLength)];
+   self.perk3WildcardImage = [[UIImageView alloc] initWithFrame:CGRectMake(sideLength, self.perk3Shell.frame.size.height - sideLength, sideLength, sideLength)];
    self.perk3WildcardImage.backgroundColor = [self randomColor];
    [self.perk3Shell addSubview:self.perk3WildcardImage];
 
 }
 
 - (void)layoutSecondary{
-   self.secondaryImage = [[UIImageView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, self.primaryAttachmentShell.frame.origin.y + self.primaryAttachmentShell.frame.size.height + EDGE_OFFSET, WIDTH, 150)];
+   
+   int shellHeight = self.secondaryShell.frame.size.height;
+   self.secondaryImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, shellHeight * .75)];
    self.secondaryImage.backgroundColor = [self randomColor];
-   [self addSubview:self.secondaryImage];
+   [self.secondaryShell addSubview:self.secondaryImage];
    
    self.secondaryLabel = [[UILabel alloc] initWithFrame:self.secondaryImage.frame];
    self.secondaryLabel.text = @"Secondary Gun";
-   [self addSubview:self.secondaryLabel];
+   [self.secondaryShell addSubview:self.secondaryLabel];
    
-   self.secondaryAttachmentShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, self.secondaryImage.frame.origin.y + self.secondaryImage.frame.size.height, WIDTH, 80)];
+   self.secondaryAttachmentShell = [[UIView alloc] initWithFrame:CGRectMake(0, self.secondaryImage.frame.origin.y + self.secondaryImage.frame.size.height, WIDTH, shellHeight * .25)];
    self.secondaryAttachmentShell.backgroundColor = [self randomColor];
-   [self addSubview:self.secondaryAttachmentShell];
+   [self.secondaryShell addSubview:self.secondaryAttachmentShell];
    
    self.secondaryAttachmentLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.secondaryAttachmentShell.frame.size.width, self.secondaryAttachmentShell.frame.size.height/2)];
    self.secondaryAttachmentLabel1.text = @"Attachment 1";
@@ -543,20 +543,24 @@
    
 }
 - (void)layoutPrimary{
+
+   
+   int shellHeight = self.primaryShell.frame.size.height;
+
    //add image
-   self.primaryImage = [[UIImageView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, EDGE_OFFSET, WIDTH, 100)];
+   self.primaryImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, shellHeight * .75)];
    self.primaryImage.backgroundColor = [self randomColor];
-   [self addSubview:self.primaryImage];
+   [self.primaryShell addSubview:self.primaryImage];
    
    //add label
    self.primaryLabel = [[UILabel alloc] initWithFrame:self.primaryImage.frame];
    self.primaryLabel.text = @"Primary Gun";
-   [self addSubview:self.primaryLabel];
+   [self.primaryShell addSubview:self.primaryLabel];
    
    //add shell
-   self.primaryAttachmentShell = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, self.primaryImage.frame.origin.y + self.primaryImage.frame.size.height, WIDTH, 60)];
+   self.primaryAttachmentShell = [[UIView alloc] initWithFrame:CGRectMake(0, self.primaryImage.frame.origin.y + self.primaryImage.frame.size.height, WIDTH, shellHeight * .25)];
    self.primaryAttachmentShell.backgroundColor = [self randomColor];
-   [self addSubview:self.primaryAttachmentShell];
+   [self.primaryShell addSubview:self.primaryAttachmentShell];
    
    self.primaryAttachmentLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.primaryAttachmentShell.frame.size.width, self.primaryAttachmentShell.frame.size.height/3)];
    self.primaryAttachmentLabel1.text = @"Attachment 1";
