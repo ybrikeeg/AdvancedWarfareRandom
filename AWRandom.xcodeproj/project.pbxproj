@@ -28,6 +28,7 @@
 		424B46611A2333740072B206 /* Exolaunchers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46601A2333740072B206 /* Exolaunchers.plist */; };
 		424B46631A2334420072B206 /* Secondary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46621A2334420072B206 /* Secondary.plist */; };
 		424B46661A2337F00072B206 /* Attachments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424B46651A2337F00072B206 /* Attachments.plist */; };
+		42A1DE091A27064900818D1C /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1DE081A27064900818D1C /* PageViewController.m */; };
 		42BB2C1B1A253B9900B645BB /* DisplayCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BB2C1A1A253B9900B645BB /* DisplayCase.m */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		424B46601A2333740072B206 /* Exolaunchers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Exolaunchers.plist; sourceTree = "<group>"; };
 		424B46621A2334420072B206 /* Secondary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secondary.plist; sourceTree = "<group>"; };
 		424B46651A2337F00072B206 /* Attachments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Attachments.plist; sourceTree = "<group>"; };
+		42A1DE071A27064900818D1C /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		42A1DE081A27064900818D1C /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		42BB2C191A253B9900B645BB /* DisplayCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayCase.h; sourceTree = "<group>"; };
 		42BB2C1A1A253B9900B645BB /* DisplayCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				423288531A22881000F7BDFA /* MainViewController.m */,
 				42BB2C191A253B9900B645BB /* DisplayCase.h */,
 				42BB2C1A1A253B9900B645BB /* DisplayCase.m */,
+				42A1DE071A27064900818D1C /* PageViewController.h */,
+				42A1DE081A27064900818D1C /* PageViewController.m */,
 				423288711A228AD200F7BDFA /* Primary.h */,
 				423288721A228AD200F7BDFA /* Primary.m */,
 				423288741A228ADB00F7BDFA /* Secondary.h */,
@@ -308,6 +313,7 @@
 				42BB2C1B1A253B9900B645BB /* DisplayCase.m in Sources */,
 				423288761A228ADB00F7BDFA /* Secondary.m in Sources */,
 				4232884E1A22881000F7BDFA /* main.m in Sources */,
+				42A1DE091A27064900818D1C /* PageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

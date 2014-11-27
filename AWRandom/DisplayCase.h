@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DisplayCase : UIView
+@interface DisplayCase : UIView <UIPageViewControllerDataSource>
 
 @end

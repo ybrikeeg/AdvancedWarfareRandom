@@ -7,6 +7,7 @@
 //
 
 #import "DisplayCase.h"
+#import "PageViewController.h"
 
 #define EDGE_OFFSET 10
 #define WIDTH (self.frame.size.width - (2*EDGE_OFFSET))
@@ -31,7 +32,7 @@
 @property (nonatomic, strong) UILabel *secondaryAttachmentLabel1;
 @property (nonatomic, strong) UILabel *secondaryAttachmentLabel2;
 
-
+@property (nonatomic, strong) UIView *perkShell;
 @property (nonatomic, strong) UIView *perk1Shell;
 @property (nonatomic, strong) UIView *perk2Shell;
 @property (nonatomic, strong) UIView *perk3Shell;
@@ -86,6 +87,9 @@
 @property (nonatomic, strong) UILabel *wild3Title;
 @property (nonatomic, strong) UILabel *wild3Name;
 @property (nonatomic, strong) UIImageView *wild3Image;
+
+@property (strong, nonatomic) UIPageViewController *pageController;
+@property (strong, nonatomic) NSMutableArray *vcs;
 @end
 
 @implementation DisplayCase
@@ -96,22 +100,104 @@
       //[self layoutPrimary];
       //[self layoutSecondary];
       
-      //[self layoutPerks];
+      [self layoutPerks];
       //[self layoutScorestreaks];
       //[self layoutExo];
-      [self layoutWildcards];
+      //[self layoutWildcards];
+      
+      self.vcs = [[NSMutableArray alloc] init];
+      for (int i = 0; i < 4; i++){
+         PageViewController *page = [[PageViewController alloc] initWithIndex:i];
+         page.view = [self createViewForIndex:i];
+         [self.vcs addObject:page];
+      }
+      
+      NSArray *viewControllers = [NSArray arrayWithObject:[self.vcs objectAtIndex:0]];
+      self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+      [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+
+      self.pageController.dataSource = self;
+      [[self.pageController view] setFrame:CGRectMake(EDGE_OFFSET, 200, WIDTH, 230)];
+      self.pageController.view.backgroundColor = [self randomColor];
+      
+      //[self addChildViewController:self.pageController];
+      [self addSubview:[self.pageController view]];
+      //[self.pageController didMoveToParentViewController:self];
+
+
    }
    
    return self;
 }
 
+- (UIView *)createViewForIndex:(int)index{
+//   if (index == 0){
+//      [self layoutWildcards];
+//      return self.wildSehell;
+//   }
+   
+   if (index == 0){
+      [self layoutPerks];
+      return self.perkShell;
+   }else if (index == 1){
+      [self layoutScorestreaks];
+      return self.scorestreakShell;
+   }else if (index == 2){
+      [self layoutExo];
+      return self.exoshell;
+   }else if (index == 3){
+      [self layoutWildcards];
+      return self.wildSehell;
+   }
+   
+   return NULL;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+   NSUInteger index = [(PageViewController *)viewController index];
+   NSLog(@"vc: %lu", (unsigned long)index);
+   if (index == 0) {
+      return nil;
+   }
+   
+   // Decrease the index by 1 to return
+   index--;
+   
+   return [self.vcs objectAtIndex:index];
+   
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+   NSUInteger index = [(PageViewController *)viewController index];
+   NSLog(@"vc: %lu", (unsigned long)index);
+
+   index++;
+   
+   if (index == 4) {
+      return nil;
+   }
+   
+   return [self.vcs objectAtIndex:index];
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+   // The number of items reflected in the page indicator.
+   return 4;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+   // The selected item reflected in the page indicator.
+   return 0;
+}
 - (void)layoutWildcards{
-   self.wildSehell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, PAGECONTROL_HEIGHT)];
-   self.wildSehell.backgroundColor = [self randomColor];
-   [self addSubview:self.wildSehell];
+   self.wildSehell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+
+   self.wildSehell.backgroundColor = [UIColor yellowColor];
+   //[self addSubview:self.wildSehell];
    
    self.wild1Title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, 30)];
    self.wild1Title.text = @"Wildcard 1";
+   self.wild1Title.backgroundColor = [self randomColor];
    self.wild1Title.adjustsFontSizeToFitWidth = YES;
    [self.wild1Title sizeThatFits:CGSizeMake(WIDTH/3, 30)];
    [self.wildSehell addSubview:self.wild1Title];
@@ -132,6 +218,7 @@
    
    self.wild2Title = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH/3, 0, WIDTH/3, 30)];
    self.wild2Title.text = @"Wildcard 2";
+   self.wild2Title.backgroundColor = [self randomColor];
    self.wild2Title.adjustsFontSizeToFitWidth = YES;
    [self.wild2Title sizeThatFits:CGSizeMake(WIDTH/3, 30)];
    [self.wildSehell addSubview:self.wild2Title];
@@ -151,6 +238,7 @@
    
    self.wild3Title = [[UILabel alloc] initWithFrame:CGRectMake(2 * WIDTH/3, 0, WIDTH/3, 30)];
    self.wild3Title.text = @"Wildcard 3";
+   self.wild3Title.backgroundColor = [self randomColor];
    self.wild3Title.adjustsFontSizeToFitWidth = YES;
    [self.wild3Title sizeThatFits:CGSizeMake(WIDTH/3, 30)];
    [self.wildSehell addSubview:self.wild3Title];
@@ -170,9 +258,10 @@
 }
 
 - (void)layoutExo{
-   self.exoshell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, PAGECONTROL_HEIGHT)];
+   self.exoshell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+
    self.exoshell.backgroundColor = [self randomColor];
-   [self addSubview:self.exoshell];
+//   [self addSubview:self.exoshell];
    
 
    self.exoabilityTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH/2, 30)];
@@ -236,9 +325,10 @@
 - (void)layoutScorestreaks{
    NSInteger sideLength = WIDTH/4;
 
-   self.scorestreakShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, PAGECONTROL_HEIGHT)];
+      self.scorestreakShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
    self.scorestreakShell.backgroundColor = [self randomColor];
-   [self addSubview:self.scorestreakShell];
+   
+   //[self addSubview:self.scorestreakShell];
    
    self.streak1title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH/4, 30)];
    self.streak1title.text = @"Streak 1";
@@ -307,10 +397,12 @@
    [self.scorestreakShell addSubview:self.streak4Image];
 }
 - (void)layoutPerks{
+   self.perkShell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.pageController.view.frame.size.width, PAGECONTROL_HEIGHT)];
+   //[self addSubview:self.perkShell];
    //perk 1
    self.perk1Shell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
    self.perk1Shell.backgroundColor = [self randomColor];
-   [self addSubview:self.perk1Shell];
+   [self.perkShell addSubview:self.perk1Shell];
    
    UILabel *perk1Title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.perk1Shell.frame.size.width, 30)];
    perk1Title.text = @"Perk 1";
@@ -346,8 +438,8 @@
    
    self.perk2Shell = [[UIView alloc] initWithFrame:CGRectMake(WIDTH/3, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
    self.perk2Shell.backgroundColor = [self randomColor];
-   [self addSubview:self.perk2Shell];
-   
+   [self.perkShell addSubview:self.perk2Shell];
+
    UILabel *perk2Title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.perk2Shell.frame.size.width, 30)];
    perk2Title.text = @"Perk 2";
    perk2Title.backgroundColor = [self randomColor];
@@ -380,7 +472,7 @@
    
    self.perk3Shell = [[UIView alloc] initWithFrame:CGRectMake(2 * WIDTH/3, 0, WIDTH/3, PAGECONTROL_HEIGHT)];
    self.perk3Shell.backgroundColor = [self randomColor];
-   [self addSubview:self.perk3Shell];
+   [self.perkShell addSubview:self.perk3Shell];
    
    UILabel *perk3Title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.perk3Shell.frame.size.width, 30)];
    perk3Title.text = @"Perk 3";
