@@ -14,6 +14,9 @@
 #import "ExoAbility.h"
 #import "ExoLauncher.h"
 #import "DisplayCase.h"
+#import "iAd/ADBannerView.h"
+
+
 @interface MainViewController ()
 @property (nonatomic) NSInteger pointsRemaining;
 @property (nonatomic, strong) NSMutableArray *modularPartsUsed;
@@ -33,17 +36,30 @@
 - (void)viewDidLoad {
    self.modularPartsUsed = [[NSMutableArray alloc] init];
    self.wildcardNames = [[NSMutableArray alloc] init];
-//   for (int i = 0; i < 100; i++){
-//      [self createClass:nil];
-//   }
-   
+
+   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+
    self.display = [[DisplayCase alloc] initWithFrame:self.view.frame];
    [self.view addSubview:self.display];
+   
+   
+   ADBannerView *adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
+   [self.view addSubview:adView];
+   
+   UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+   [button addTarget:self action:@selector(createClass:)
+    forControlEvents:UIControlEventTouchUpInside];
+   button.frame = CGRectMake(50, adView.frame.origin.y - 40, self.view.frame.size.width - 50*2, 40);
+   UIImage *press = [UIImage imageNamed:@"Button"];
+   [button setImage:press forState:UIControlStateNormal];
+   
+   [self.view addSubview:button];
    
    [super viewDidLoad];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)createClass:(UIButton *)sender{
+
    NSLog(@"Create a class");
    self.pointsRemaining = 13;
    [self.modularPartsUsed removeAllObjects];

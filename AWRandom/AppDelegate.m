@@ -19,6 +19,11 @@
    // Override point for customization after application launch.
    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
+   UIPageControl *pageControl = [UIPageControl appearance];
+   pageControl.pageIndicatorTintColor = [UIColor blackColor];
+   pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+   //pageControl.backgroundColor = [UIColor whiteColor];
+   
    return YES;
 }
 
