@@ -132,7 +132,7 @@
       
       self.pageController.dataSource = self;
       self.pageController.view.layer.borderWidth = 2.0f;
-      self.pageController.view.layer.borderColor = [UIColor whiteColor].CGColor;
+      self.pageController.view.layer.borderColor = [UIColor grayColor].CGColor;
       [self addSubview:[self.pageController view]];
    }
    
@@ -466,7 +466,8 @@
    self.perk1Shell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
    //self.perk1Shell.backgroundColor = [UIColor orangeColor];
    [self.perkShell addSubview:self.perk1Shell];
-   
+   self.perk1Shell.layer.borderWidth = 2.0f;
+   self.perk1Shell.layer.borderColor = [UIColor grayColor].CGColor;
    UILabel *perk1Title = [[UILabel alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0, self.perk1Shell.frame.size.width, 30)];
    perk1Title.text = @"Perk 1";
    perk1Title.adjustsFontSizeToFitWidth = YES;
@@ -497,7 +498,7 @@
    
    self.perk2Shell = [[UIView alloc] initWithFrame:CGRectMake(WIDTH/3, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
    [self.perkShell addSubview:self.perk2Shell];
-   
+
    UILabel *perk2Title = [[UILabel alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0, self.perk2Shell.frame.size.width, 30)];
    perk2Title.text = @"Perk 2";
    perk2Title.adjustsFontSizeToFitWidth = YES;
@@ -526,6 +527,8 @@
    
    self.perk3Shell = [[UIView alloc] initWithFrame:CGRectMake(2 * WIDTH/3, 0, WIDTH/3, self.pageController.view.frame.size.height - 36)];
    [self.perkShell addSubview:self.perk3Shell];
+   self.perk3Shell.layer.borderWidth = 2.0f;
+   self.perk3Shell.layer.borderColor = [UIColor grayColor].CGColor;
    
    UILabel *perk3Title = [[UILabel alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0, self.perk3Shell.frame.size.width, 30)];
    perk3Title.text = @"Perk 3";
